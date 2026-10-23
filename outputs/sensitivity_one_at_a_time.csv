@@ -1,0 +1,16 @@
+"parameter","value","n_evaluable_per_arm","n_recruit_per_arm","n_recruit_total"
+"sd_post",8.7,26,33,66
+"sd_post",10,34,43,86
+"sd_post",12,49,62,124
+"rho",0,35,44,88
+"rho",0.3,32,40,80
+"rho",0.5,26,33,66
+"rho",0.7,18,23,46
+"delta",4,57,72,144
+"delta",5,37,47,94
+"delta",6,26,33,66
+"power",0.8,26,33,66
+"power",0.9,35,44,88
+"loss",0.1,26,29,58
+"loss",0.2,26,33,66
+"loss",0.3,26,38,76

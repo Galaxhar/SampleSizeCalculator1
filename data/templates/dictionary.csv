@@ -1,0 +1,17 @@
+field,type,required,description
+participant_id,texto,Sim,Codigo pseudonimizado estavel; nunca nome ou prontuario. Unidade biologica independente.
+group,texto,Sim,EA ou sham; deve ser constante para cada participante.
+visit,texto,Sim,T0 basal; T1 semana 4; T2 semana 16.
+assay,texto,Sim,"plasma_proteomics, saliva_proteomics ou saliva_peptidomics; arquivos separados."
+sample_id,texto,Sim,Identifica uma amostra biologica por participante e visita; preservado nas injeções repetidas.
+analyte_id,texto,Sim,Grupo proteico definido pelo pipeline ou sequencia/modificacoes do peptideo endogeno; ID estavel.
+analyte_level,texto,Sim,protein para proteomica; endogenous_peptide para peptidomica. Features tripticas nao sao proteinas independentes.
+technical_replicate,texto,Sim,Identificador da injecao tecnica repetida do mesmo analito/amostra; nao aumenta participantes.
+abundance,numero,"Sim, NA permitido",Abundancia individual ja normalizada; sem media por grupo. NA para nao detectado; nunca zero imputado automaticamente.
+scale,texto,Sim,raw_positive ou log2; nao misturar. Valores raw_positive devem ser >0.
+normalization,texto,Sim,"Nome/versao e identificador do pipeline. none se sem normalizacao, com justificativa externa. Correcao de lotes deve conter batch e ser documentada."
+prep_batch,texto,Sim,Lote de preparo/extracao/digestao; registrar um ID mesmo se lote unico.
+ms_batch,texto,Sim,Lote/corrida instrumental; nao confundir com grupo ou momento.
+missing_reason,texto,Quando abundance=NA,"Ex.: abaixo_LOQ, falha_injecao, coleta_ausente, QC_reprovado; nao pressupor MAR/MCAR."
+identification_qvalue,"numero [0,1]",NA permitido,"q-value de identificacao no nivel declarado, se exportado; nao e q-value de abundancia diferencial. FDR 1% do pipeline e criterio, nao q individual inventado."
+qc_pass,logico,Sim,TRUE/FALSE; decisao de QC definida antes de testar tratamento; FALSE exclui a medicao da agregacao.

@@ -1,0 +1,517 @@
+                                                     Sleep Medicine 8 (2007) 43–50
+                                                                                                                www.elsevier.com/locate/sleep
+
+                                                             Original article
+
+      Treatment of moderate obstructive sleep apnea syndrome with
+       acupuncture: A randomised, placebo-controlled pilot trial q
+          Anaﬂávia O. Freire a, Gisele C.M. Sugai b, Fernanda Silveira Chrispin a,
+     Sônia Maria Togeiro a, Ysao Yamamura c, Luiz Eugênio Mello d,*, Sérgio Tuﬁk a
+                             a
+                               Sleep Division, Universidade Federal de São Paulo (UNIFESP), São Paulo, SP, Brazil
+                b
+                   Department of Neurology/ Neuroscience, Universidade Federal de São Paulo (UNIFESP), São Paulo, SP, Brazil
+ c
+   Division of Chinese Medicine and Acupuncture, Department of Orthopedics and Traumatology, Universidade Federal de São Paulo (UNIFESP),
+                                                              São Paulo, SP, Brazil
+         d
+           Department of Physiology, Universidade Federal de São Paulo (UNIFESP), Rua Botucatu 862, 04023-062 São Paulo, SP, Brazil
+
+                          Received 29 November 2005; received in revised form 14 April 2006; accepted 14 April 2006
+                                                     Available online 4 October 2006
+
+
+
+
+Abstract
+
+Background and purpose: To investigate the eﬃcacy of acupuncture in the treatment of moderate obstructive sleep apnea syndrome
+(OSAS), assessed by polysomnography (PSG) and questionnaires of functional quality of life (SF-36) and excessive daytime sleepiness
+(Epworth).
+Patients and methods: We performed a randomised, placebo-controlled, single-blinded study, with blinded evaluation on 36 patients
+presenting an apnea/hypopnea index (AHI) of 15–30/h, assessed by PSG. The study took place at the Public Hospital of the Univer-
+sidade Federal de São Paulo, Brazil, in the Division of Sleep Disorders of the Department of Psychobiology, between January, 2002 and
+August, 2004. Patients were randomly assigned to three groups: the acupuncture group (n = 12); the sham group, submitted to needle
+insertion in non-acupoints (n = 12); and the control group, receiving no treatment (n = 12). Patients received acupuncture or sham acu-
+puncture once a week for 10 weeks.
+Results: Twenty-six patients completed the study. The AHI (P = 0.005), the apnea index (AI) (P = 0.008) and the number of respira-
+tory events (P = 0.005) decreased signiﬁcantly in the acupuncture group but not in the sham group. On the other hand, the control group
+displayed signiﬁcant deterioration in some of the polysomnographic parameters, with a signiﬁcant increase in the number of respiratory
+events (P = 0.025). Acupuncture treatment signiﬁcantly improved (before vs. after treatment) several dimensions of the SF-36 and
+Epworth questionnaires. There was no signiﬁcant association between changes in the body mass index (BMI) and AHI.
+Conclusions: Acupuncture is more eﬀective than sham acupuncture in ameliorating the respiratory events of patients presenting with
+moderate OSAS.
+ 2006 Elsevier B.V. All rights reserved.
+
+Keywords: Acupuncture; Obstructive sleep apnea syndrome; Polysomnography; Quality of life; Excessive daytime sleepiness
+
+
+
+1. Introduction                                                            including daytime symptoms of excessive sleepiness, neu-
+                                                                           ropsychiatric eﬀects such as depression and cognitive dys-
+    Obstructive sleep apnea syndrome (OSAS) has recent-                    function, and cardiovascular diseases such as
+ly been accepted as a major public health issue because of                 hypertension, arrhythmias, heart failure and stroke [1].
+its high prevalence and serious associated consequences,                   In addition to these consequences, the economic eﬀects
+ q
+                                                                           of sleep disorders was estimated in 1990 to be at $15.9 bil-
+   Financial support by: FAPESP/CEPID (98/14303-3); AOF was a
+FAPESP PhD fellow (01/0863-4).
+                                                                           lion in the United States only for direct costs [2].
+ *
+   Corresponding author. Tel./fax: + 55 11 5579 2033.                         Nasal continuous positive airway pressure (nCPAP)
+   E-mail address: lemello@ecb.epm.br (L.E. Mello).                        therapy is the standard treatment for the management
+
+1389-9457/$ - see front matter  2006 Elsevier B.V. All rights reserved.
+doi:10.1016/j.sleep.2006.04.009
+44                                     A.O. Freire et al. / Sleep Medicine 8 (2007) 43–50
+
+of clinically signiﬁcant OSAS [3]. Proper use of nCPAP             related questionnaire-SF 36 and a speciﬁc questionnaire
+manages apneas and hypopneas, eliminates hypoxia,                  (Epworth); they also had their neck and abdominal cir-
+restores normal sleep architecture and signiﬁcantly                cumferences and body mass index (BMI) measured.
+improves subjective and objective measures of wakeful-                The patients signed an informed consent form, which
+ness as well as averts cardiovascular consequences [4].            described that we were testing acupuncture in compari-
+Despite the eﬃcacy of this treatment, there is evidence            son to a sham acupuncture procedure. Patients were also
+that CPAP compliance is not ideal [5].                             informed that they would not know to which group they
+   There is considerable evidence that the eﬀects of acu-          were allocated. Finally, patients were informed that at
+puncture include the release of serotonin from caudal              the end of the study all patients allocated to the sham
+raphe nucleus [6] and endogenous opioids systems (e.g.             acupuncture group would receive 10 sessions of acu-
+endorphins/enkephalins) [7] and also the involvement of            puncture treatment if they so wanted. Patients assigned
+sympathetic nervous mechanisms [8]. It is also shown in            to the control group were oﬀered weight reduction
+the literature that acupuncture suppresses inﬂammation             advice if overweight and sleep hygiene counseling. Given
+by activating the hypothalamus–pituitary–adrenal axis              the usual waiting list for nCPAP at our service, which is
+(HPA) [9].                                                         about 6 months, the waiting time was not a matter of
+   Several recent investigations have highlighted evidence         ethical concern. Patients were also informed about the
+for sensory nerve damage in the upper airways of patients          possible risks of acupuncture treatment such as infec-
+with OSA [10], and for a reduction of the excitatory drive         tion, fainting, and haematoma, including death in case
+from the caudal raphe serotonergic neurons which are               of improper handling of the needle [12]. After the inter-
+responsible for exciting upper airway muscles, leading             view, the patients were instructed as follows: the acu-
+to the aggravation of pharyngeal collapse [11].                    puncture group and the sham acupuncture group were
+   Rather than directly testing this hypothesis, which             to come once a week during the afternoon for 10 consec-
+poses a great level of diﬃculty, we decided to address             utive weeks to receive the proposed treatments. The con-
+the therapeutic eﬀectiveness of acupuncture for the                trol group had a re-evaluation scheduled for within 3
+treatment of OSAS.                                                 months (Fig. 1) and was not seen meanwhile. The Ethi-
+                                                                   cal Committee of the Universidade Federal de São Pau-
+2. Materials and methods                                           lo approved the study protocol (number 786/01).
+
+2.1. Study design and subjects                                     2.2. Treatment applied
+
+    Between January, 2002 and August, 2004, we                     2.2.1. Needle type: real and sham acupuncture
+screened patients who attended the out-patient clinic                  We used single-use, sterile, cooper-handle, pre-packed
+for sleep disorders in the São Paulo Hospital of the Uni-         needles with guide tubes, 40·0.25 mm (Dongbang Acu-
+versidade Federal de São Paulo for inclusion in this              puncture Needle, Boryeong City, South Korea). All
+research. Eligible patients (n = 36) had obstructive sleep         points were disinfected with ethanol before the needles
+apnea conﬁrmed by a full polysomnographic (PSG)                    were inserted. The set of acupuncture points used
+study with an apnea/hypopnea index (AHI) > 15/hour                 (Fig. 2) [13] was decided before the treatment and was
+and < 30/hour (moderate OSAS) and were acupunc-                    the same for all individuals in accordance with other stud-
+ture-naı̈ve. From the total of 38 eligible patients                ies cited in the literature [13]. The choice of acupoints was
+approached to participate in the study, 36 agreed to par-          based on their speciﬁc characteristics, such as points that
+ticipate. There were only two subjects whom upon being             ‘tonify the whole ‘‘energy’’ of the subject,’ are speciﬁc for
+asked were not interested in participating. Patients with          the treatment of somnolence, are speciﬁc for the treatment
+a high alcohol intake ( > 80 g/day), morbid obesity, sig-          of throat diseases, are speciﬁc to treat rhinitis, and are
+niﬁcant lung disease, neurological disease, intellectual           ‘speciﬁc to move the ‘‘stagnations’’ in the whole body.’
+deﬁcits, skeletal facial framework problems, or central            The location and depth of insertions was as described in
+apnea, or who were taking any hypnotic drugs, had                  traditional texts [13]. The points used were P 6 (Neiguan)
+undergone oropharyngeal surgeries or had been treated              2 cun (cun is similar to 1 in; measurement used to localize
+with CPAP or oral devices were excluded. Randomisa-                the points corresponds to the size of the thumb of the
+tion was done by a blinded independent researcher                  patient) above the wrist crease, between the tendons of
+and was conducted by selecting a closed piece of paper             palmaris longus and ﬂexor carpi radialis; Lu 7 (Lieque)
+out of a box, with a treatment order written on it. Only           1.5 cun above the wrist crease, superior to the styloid pro-
+the physician applying the treatments (acupuncture/                cess of the radius; Li 4 (Hegu) in the middle of the second
+sham acupuncture) was aware of which group each                    metacarpal bone on the radial side; Li20 (Yingxiang) in
+patient had been assigned to and did not participate in            the nasolabial groove, level with the midpoint of the lat-
+any phase of the subsequent evaluation. Patients under-            eral border of the ala nasi; Gv20 (Bahui) 5 cun posterior
+went an interview, during which they answered a health-            to the anterior head line; Ren 23 (Lianquan) at the upper
+                                            A.O. Freire et al. / Sleep Medicine 8 (2007) 43–50                                           45
+
+
+                                                                      36 patients randomly
+                                                                      assigned to the trial
+
+
+
+
+                                           12 allocated                     12 allocated                12 allocated
+                                           acupuncture                      placebo                     control
+
+
+
+                                                          3 excluded
+                            2 excluded                    2 dropped out                    3 excluded
+
+
+
+
+                                          10 completed                    7 completed               9 completed
+                                          12 weeks                        12 weeks                  12 weeks
+                                          follow-up                       follow-up                 follow-up
+
+                                                               Fig. 1. Trial proﬁle.
+
+
+                                                                              ture [14]. For the sham acupuncture group, the needles
+                                                                              were inserted and no manipulation was done. In the acu-
+                                                                              puncture group, the needles were correctly inserted and
+                                                                              manually stimulated by lifting and rotating until the ‘de
+                                                                              qi’ sensation of heaviness and numbness were elicited
+                                                                              [13]. All acupuncture procedures, as well as sham acu-
+                                                                              puncture, were performed by an experienced physician,
+                                                                              who was a specialist in acupuncture, according to tradi-
+                                                                              tional Chinese acupuncture methods. All procedures
+                                                                              were performed in the afternoon between 3 p.m. and 6
+                                                                              p.m. Body needles were left in situ for 30 min. No
+                                                                              adverse events occurred during the trial.
+
+                                                                              2.2.2. Evaluation of general health/functional status and
+                                                                              subjective sleepiness
+                                                                                 General health and functional status were assessed
+                                                                              with the Medical Outcome Study 36-item short-form
+                                                                              health survey (SF-36) [15], self-administered by each sub-
+              Fig. 2. Selection of the acupoints.
+                                                                              ject on the day of the ﬁrst evaluation and of the reevalua-
+border of hyoid bone; St 36 (Zusanli) four ﬁngers’ breadth                    tion, together with the Epworth sleepiness scale (ESS)
+below the lateral depression of the patella, one-ﬁnger                        [16], which evaluates the degree of sleepiness in eight dif-
+width lateral from the anterior border of the tibia; St 40                    ferent daily conditions. ESS scores vary from 0 to 24, with
+(Fenglong) 8 cun below the inferior border of the knee                        increasing scores indicating greater sleepiness. The SF-36
+and two ﬁnger widths lateral to the anterior border of                        questionnaire yields summary scores for each of eight
+the tibia; Sp 6 (Sanyinjiao) 3 cun directly above the tip                     health concepts. Four are considered ‘functional status’
+of the medial malleoulus on the posterior border of the                       measures (physical functioning, social functioning, role
+tibia; Kd 6 (Zhaohai) in a depression below the tip of                        limitation due to physical problems and role limitation
+the medial malleolus.                                                         due to emotional problems), three are considered mea-
+   The sham acupuncture group was stimulated with the                         sures of well-being (mental health, energy/fatigue and
+same number of needles as the acupuncture group, and                          pain), and one is a measure of overall health. As recom-
+the points were localized 1 cun from the real point, in a                     mended [15], raw scores for each subscale are transformed
+region not related to any acupoints or meridians and                          to scores that range from 0 to 100. In all instances, a higher
+was done following the standards of minimal acupunc-                          score is consistent with a more positive health status.
+46                                             A.O. Freire et al. / Sleep Medicine 8 (2007) 43–50
+
+2.2.3. Polysomnography procedures                                           patients would need to be randomly assigned for the study
+   Every subject went to bed in the laboratory at their usu-                to achieve statistical power of 90%, designed to detect a
+al bedtime and had a minimum of 7 h of PSG recordings.                      80% response in the treated group and 20% response in
+The following sleep variables were collected and stored                     the placebo group, with a probability of type I error of
+using ampliﬁers and pre-ampliﬁers (Meditron) and a                         0.05, and type II error of 0.10. All data were computer-an-
+computerized 32-channel sleep system (Sonolab Medi-                        alysed using SPSS 9.0 software. The characteristics of the
+tron, São Paulo, Brazil). A total of four electroencephalo-                patients were expressed as median and compared between
+gram (EEG) leads, two electro-oculogram (EOG)                               groups by the Kruskal–Wallis test. Changes as a conse-
+channels, two electromyogram (EMG) channels (chin                           quence of treatment were assessed in two ways: compared
+and both legs), and one electrocardiogram (ECG) channel                     between, before and after by the Wilcoxon matched pairs
+were recorded. Respiration was monitored as follows: (a)                    signed ranks test and compared between groups by the
+nasal cannula with ﬂow measured using a pressure trans-                     Kruskal–Wallis test [20]. The Kappa statistic was used
+ducer; (b) mouth thermocouple to monitor mouth ﬂow;                         in order to measure the IOA, calculating the unweighted
+(c) two channels for chest and abdominal eﬀorts with cal-                   j-value with its 95% conﬁdence intervals. Conventional
+ibrated inductive respiratory plethysmography; and pulse                    interpretation of K-values is as follows: 0.00–0.20, poor
+oximetry was obtained using a Nellcoroximeter.                             agreement; 0.21–0.40, regular; 0.41–0.60, moderate;
+   Sleep recordings were scored according to the criteria                   0.61–0.80, good; 0.81–1.00, very good. Negative values
+of Rechtshaﬀen and Kales [17]. Arousals were deﬁned                         are interpreted as equal to 0.00 [21].
+as abrupt shifts in EEG frequency lasting  3 s and
+< 15 s, according to the criteria published in the 1992                     4. Results
+American Sleep Disorders Association (ASDA) report
+[18]; the arousal index (AI) was calculated as the number                       A total of 36 patients with a recent PSG yielding a diag-
+of arousals per hour of sleep. Apneas were deﬁned as com-                   nosis of moderate OSAS were eligible for the study (Fig. 1):
+plete cessation of oronasal airﬂow for at least 10 s and                    20 females (55.6%) and 16 males (44.4%). Patients were
+hypopneas as any reduction in airﬂow compared to base-                      randomly assigned to the acupuncture group, sham acu-
+line, associated with a  3% desaturation or a microa-                      puncture group or control group (n = 12 each group). Dur-
+rousal lasting 10 s or more [19]. The AHI was deﬁned as                     ing the study, eight patients were excluded, of which seven
+the number of apneas–hypopneas per hour of sleep. Low-                      justiﬁed their withdrawal on the basis of the long-distance
+est and mean values of oxygen saturation (SaO2) were also                   they had to travel or the length of the study. One patient
+recorded. All of the PSG recordings were assessed by two                    from the control group was excluded for starting a separate
+experienced sleep physicians (S.M. Togeiro and F.S.Chri-                    treatment protocol with acupuncture for another medical
+spin), who were blind to the groups to which the patients                   condition (e.g. pain). Two patients from the sham acu-
+had been assigned. A total of 40 PSGs were scored by both                   puncture group stopped the treatment (drop-out). Of the
+readers before the commencement of the trial for calcula-                   26 patients who ﬁnished the study, 15 were females
+tion of interobserver agreement (IOA). The post-treat-                      (57.7%) and 11 were males (42.3%). Baseline characteristics
+ment PSG recording was obtained 2 weeks after the last                      of the three groups were similar (Table 1). There was no sta-
+application procedure. We did not score inspiratory ﬂow                     tistical diﬀerence in any of the clinical parameters measured
+limitation, in order to exclude patients with upper airway                  (BMI, abdominal and neck circumferences) between the
+resistance syndrome.                                                        patients before and after the study nor between the groups.
+   No adverse events occurred during the trial.
+                                                                            4.1. General health/functional status and subjective
+3. Statistics analysis                                                      sleepiness
+
+   As there were no previous studies on this subject, a pre-                   Table 2 shows changes in the outcomes of question-
+liminary power calculation suggested that about 24                          naire parameters before and after treatment in the three
+Table 1
+Baseline characteristics of patients
+                                          Acupuncture group                Sham acupuncture group          Control group             P
+Age (years)                               54.0 (51.0–63.0)                 53.0 (49.0–63.0)                57.0 (50.0–64.0)          0.89
+Body index mass (Kg/m2)                   26.9 (26.6–28.0)                 25.7 (25.0–30.0)                28.6 (24.8–28.8)          0.47
+Neck circumference (cm)                   39.5 (37.0–41.0)                 37.0 (34.0–41.0)                38.0 (35.0–40.0)          0.73
+Abdominal circumference (cm)              97.0 (94.0–105.0)                94.0 (83.0–102.0)               97.0 (89.0–104.0)         0.97
+Apnea–hypopnea index                      18.0 (17.0–21.0)                 19.0 (18.0–27.2)                19.1 (18.0–21.0)          0.79
+Apnea index                               8.5 (7.0–11.0)                   5.3 (4.0–9.6)                   9.0 (2.7–9.0)             0.89
+Hyponea index                             9.0 (6.4–15.0)                   12.0 (9.3–23.2)                 14.1 (12.0–18.0)          0.79
+Data are median (5th–95th centiles) with range in parentheses. P < 0.05.
+                                                  A.O. Freire et al. / Sleep Medicine 8 (2007) 43–50                                             47
+
+Table 2
+Changes in the outcomes of the mean psychometric results for the SF-36 and Epworth questionnaires before and after procedures in the studied
+groups
+                     Acupuncture                            Sham                                 Control
+                     Baseline  12-week   P before/ Baseline  12-week   P before/ Baseline  12-week   P before/ P comparing
+                     Mean (SD) Mean (SD) after     Mean (SD) Mean (SD) after     Mean (SD) Mean (SD) after     groupsa
+Epworth              11.1 (3.3)    7.5 (3.0)     0.029b     12.7 (4.3)    13.1 (5.0)    n.s.     11.0 (5.7)    13.3 (7.0)    0.047b   n.s.
+Physical function    64.5 (26.0)   69.5 (22.0)   n.s.       70.7 (22.0)   71.4 (24.0)   n.s.     52.8 (25.0)   57.8 (23.0)   n.s.     n.s.
+Role physical        52.5 (44.8)   72.5 (40.0)   0.033b     71.4 (41.9)   75.0 (25.0)   n.s.     38.9 (46.9)   33.3 (41.0)   n.s.     n.s.
+General health       50.6 (16.7)   69.9 (21.0)   0.034b     69.9 (11.1)   70.0 (20.0)   n.s.     41.4 (22.3)   46.9 (19.0)   n.s.     n.s.
+Pain                 62.1 (19.7)   71.8 (24.3)   n.s.       73.4 (14.9)   72.4 (16.3)   n.s.     60.6 (18.5)   57.2 (16.0)   n.s.     n.s.
+Vitality             36.5 (25.0)   56.5 (25.0)   0.028b     58.6 (26.0)   65.0 (18.0)   n.s.     45.0 (17.0)   43.3 (14.0)   n.s.     n.s.
+Social functioning   60.0 (29.3)   67.5 (24.0)   n.s.       73.2 (24.4)   75.0 (26.0)   n.s.     62.5 (27.2)   68.1 (23.0)   n.s.     n.s.
+Role emotional       53.3 (44.9)   73.3 (34.0)   n.s.       61.9 (40.5)   66.7 (43.0)   n.s.     37.0 (48.4)   44.4 (44.0)   n.s.     n.s.
+Mental health        50.4 (23.1)   68.4 (21.0)   0.005b     70.3 (15.5)   81.7 (15.0)   0.037b   55.6 (17.9)   52.0 (16.0)   0.029b   0.001b
+ a
+     Comparison between the three groups by Kruskal–Wallis test.
+ b
+     Acupuncture vs. control group. P < 0.05. SD, Standard deviation.
+
+groups. After 10 weeks of treatment with acupuncture,                          six variables analysed, average agreement between
+there was a signiﬁcant improvement in the ESS scores                           observers was good for two variables: microarousal
+(P = 0.028) and also in the dimensions of the SF-36 par-                       (0.79) and hypopneas (0.80), and very good for sleep
+ticularly in: role physical (P = 0.016), bodily pain                           latency (0.86), rapid eye movement (REM) latency
+(P = 0.017), vitality (P = 0.024) and mental health                            (0.85), apneas (0.81) and REM stage (0.85). Table 3 shows
+(P = 0.005). Among the patients treated with sham acu-                         the changes in the outcomes of the PSG parameters,
+puncture we observed a signiﬁcant change only in the                           depicting the results before and after procedures for the
+mental health dimension of the SF-36 (P = 0.033). In con-                      three groups. The acupuncture group showed a marked
+trast, in the control group there was deterioration in the                     signiﬁcant improvement, mainly in respiratory parame-
+mental health (P = 0.029) dimension, and the ESS score                         ters. We observed a signiﬁcant decrease in the AHI
+became signiﬁcantly worse with an initial mean of 11.0                         (Fig. 3), AI and number of respiratory events from the
+changing to 13.3 by the time of the reevaluation                               baseline of 50.5% (P = 0.005), 79% (P = 0.008), 43%
+(P = 0.047). The only signiﬁcant diﬀerence encountered                         (P = 0.005), respectively. Patients subjected to acupunc-
+between the three groups was the marked improvement                            ture also showed signiﬁcant improvements in sleep onset
+in the mental health dimension for the acupuncture group                       (67% shorter latency), in sleep eﬃciency (8% increase),
+as compared to controls (P = 0.001).                                           and in the mean saturation rate (92.8 before to 95.4 after).
+                                                                               As for the outcomes of the sham acupuncture group, there
+4.2. Polysomnographic parameters                                               was a signiﬁcant increase only in sleep eﬃciency (14%). A
+                                                                               similarly signiﬁcant improvement of 12% in sleep eﬃcien-
+   Results for IOA show that the average agreements                            cy was also seen in the control group. The control group,
+between each observer pair did not diﬀer greatly; global                       however, became signiﬁcantly worse in the number of
+agreement was considered very good (k = 0.82). Of the                          respiratory events (53% more).
+
+Table 3
+Changes in the outcomes of the polysomnographic parameters before and after procedures in the studied groups
+                          Acupuncture                          Sham                               Control
+                          Baseline  12-week   P before/ Baseline  12-week   P before/ Baseline  12-week                      P before/ P comparing
+                          Mean (SD) Mean (SD) after     Mean (SD) Mean (SD) after     Mean (SD) Mean (SD)                    after     groupsa
+Sleep onset           13.7 (9.6) 4.4 (3.0)          0.019      19.8 (17.1) 9.0 (6.3)     n.s.     18.8 (26.7) 9.7 (15.0)     n.s.     n.s.
+REM onset             122.2 (58.2) 80.6 (59.1)      n.s.       134.3 (97.6) 147.2 (77.3) n.s.     144.7(63.6) 162.8 (68.9) 0.050      n.s.
+Sleep eﬃciency (%)    79.4 (9.2) 85.7 (11)          0.028      75.9 (5.6) 86.6 (9.0) 0.018        80.3 (12.6) 89.9 (6.2)     0.043    n.s.
+REM stage (%)         16.5 (6.6) 20.1 (6.8)         n.s.       16.6 (5.3) 13.8 (4.8) n.s.         14.9 (4.2) 15.4 (5.0)      n.s.     n.s.
+Apnoea–hypopnea index 19.9 (4.1) 10.1 (5.6)         0.005      21.6 (5.3) 24.6 (11.0) n.s.        20.4 (4.4) 28.2 (18.0) n.s.         0.002b’c
+Apnoea index          8.4 (4.4)    1.8 (3.7)        0.008      7.1 (3.3)    9.6 (10.0) n.s.       6.0 (4.5)    6.0 (7.3)     n.s.     0.018b
+Hypopnea index        11.7 (7.2) 8.4 (4.4)          n.s.       14.5 (6.7) 15.1 (6.8) n.s.         14.5 (4.0) 22.4 (15.0) n.s.         n.s.
+Respiratory events    116.1 (22.2) 66.5 (40.0)      0.005      119.1 (19.3) 162.9 (79.0) n.s.     117.3 (40.0) 180.0 (111.0) 0.025    0.001b’c
+Microarousal          102.1 (44.6) 85.3 (20.0)      n.s.       140.7 (52.3) 164.7 (89.0) n.s.     141.7 (76.1) 160.7 (102.0) n.s.     n.s.
+Mean SaO2 (%)         92.8 (2.1) 95.4 (2.0)         0.011      94.0 (1.3) 94.1 (2.0) n.s.         94.8 (1.0) 94.2 (2.0)      n.s.     0.005b
+ a
+   Comparison between the three groups by Kruskal–Wallis test.
+ b
+   Acupuncture vs. control group.
+ c
+   Aacupuncture vs. sham acupuncture group. P < 0.05. SD, Standard deviation.
+48                                             A.O. Freire et al. / Sleep Medicine 8 (2007) 43–50
+
+                                 Acupuncture                               changes in the respiratory events assessed by PSG, and
+            35                                                             in the improvement of the quality of life of patients suf-
+            30                                                             fering from OSAS. This is the ﬁrst study of the eﬀects of
+            25                                                             acupuncture in the treatment of obstructive sleep apnea;
+            20
+                                                                           thus, the preliminary results from this study will require
+      AHI
+
+
+
+
+                                                                           validation with additional data.
+            15
+                                                                               Bardwell and colleagues [22] showed that CPAP was
+            10                                                             clearly more eﬀective than placebo (an ineﬀective CPAP)
+             5                                                             for reducing the number of apneas and hypopneas and
+             0                                                             increasing the percentage of REM. In contrast to the
+                      Baseline                 12 week                     CPAP trials that analysed the acute eﬀect of this equip-
+                                                                           ment, our treatment promoted changes in respiratory
+                                   Control
+            70                                                             events during sleep 15 days after the last acupuncture
+            60                                                             session.
+            50
+                                                                               One of the most noticeable changes in PSG parameters
+                                                                           in the acupuncture group was the reduction in AHI
+            40
+      AHI
+
+
+
+
+                                                                           (Fig. 3). Analysing individual subjects, we observed that
+            30                                                             six patients of the acupuncture group (60%) had an AI
+            20                                                             equal to 0 2 weeks after treatment. Widely accepted
+            10                                                             PSG criteria for treatment to be considered successful is
+             0
+                                                                           a reduction in AHI to lower than 10, with a 50% reduction
+                      Baseline                 12 week                     from the baseline condition [19]. In our study, 60% of the
+                                                                           patients reached these goals, and another 20% reached
+                                    Sham                                   only the 50% reduction in AHI. In this pilot study, we
+            45
+            40
+                                                                           showed a 50% change in the AHI of the acupuncture
+            35                                                             group, which is smaller than our original estimation
+            30                                                             (80%), with standard deviations of 5 and 11 before and
+            25                                                             after treatment, respectively. On the other hand, we had
+      AHI
+
+
+
+
+            20                                                             a negative eﬀect ( ) 15% in the sham group (expected
+            15                                                             20%). Accordingly, to maintain a signiﬁcant level of 5%
+            10                                                             and a statistical power of 90%, we will need a sample size
+             5                                                             of 25 patients in each group in future studies, Further-
+             0                                                             more, the number of respiratory events, as well as the
+                      Baseline                  12 week                    number of microarousals, had diminished in all of the
+     Fig. 3. Changes in the individual apnea hypopnea index (AHI).         patients in the acupuncture group, 42.7 and 16.5% less
+                                                                           than the baseline, respectively. The robustness of this
+                                                                           observation was further supported by the fact that no sin-
+   Comparison of the three groups after treatment                          gle patient of the sham acupuncture and control groups
+revealed that the acupuncture group signiﬁcantly dif-                      reached an AI of 0. The non-speciﬁc improvement in sleep
+fered from both the sham acupuncture and control                           eﬃciency observed in all groups is likely to be a conse-
+groups in the AHI (P = 0.02) and in the number of                          quence of the adaptation to the laboratory setting. Anoth-
+respiratory events (P = 0.001). The acupuncture group                      er important issue is the possibility of missing other forms
+also showed signiﬁcant changes over the control group                      of abnormal breathing during sleep, such as periods of
+(but not over sham) in the AI (P = 0.018). Sham-treated                    increased respiratory eﬀort and parodoxal breathing.
+subjects did not diﬀer from controls in any of the per-                    Although this protocol did not include esophageal bal-
+formed PSG measurements made after the 12-week                             loon, the gold standard method to detect the respiratory
+length of the study (Table 3).                                             eﬀort, we measured the airﬂow through the nasal cannula.
+   We did not use the intent-to-treat analysis because we                  This measurement provides information about airﬂow
+could not follow up on these patients. Thus, we do not                     limitation [23], which has been correlated with elevated
+have data for the patients who dropped out.                                upper airway resistance and increased esophageal pres-
+                                                                           sure. Since, the PSG scorers did not ﬁnd any ﬂattened
+5. Discussion                                                              inspiratory airﬂow associated with microarousals or
+                                                                           paradoxal breathing, we could rule out upper airway
+   This placebo-controlled pilot study demonstrates that                   resistance syndrome (UARS).
+acupuncture is more eﬀective than placebo treatment                            Either speciﬁc and/or non-speciﬁc eﬀects can indicate
+(sham acupuncture) in terms of providing signiﬁcant                        a treatment has been successful [24]. Acupuncture has
+                                          A.O. Freire et al. / Sleep Medicine 8 (2007) 43–50                                    49
+
+the potential to elicit very powerful placebo eﬀects [25].            night-by-night variability of the AHI. Variability of the
+Not surprisingly, therefore, almost all patients treated              AHI has been reported when patients without any treat-
+with sham acupuncture may respond positively in some                  ment for OSAS underwent three consecutive PSG record-
+manner [26], as we could observe in our study. Although               ing sessions [31]. Here, in contrast, all patients of the
+we were careful in the experimental design, many base-                acupuncture group had signiﬁcant reductions of the
+line parameters were higher in the sham acupuncture                   AHI, suggesting treatment eﬀectiveness rather than vari-
+group. Even so, the signiﬁcant improvement in the men-                ability of the AHI as the most likely cause for change.
+tal health dimension of the SF-36 among the patients                     There is strong evidence of the involvement of seroto-
+treated with sham acupuncture may be associated with                  nergic pathways in the responses mediated by acupunc-
+the placebo eﬀect mentioned in other acupuncture stud-                ture. Sugai and colleagues [32] showed in rats that
+ies. This speculation may be on the mark, since, we did               treatment with pCPA (para-Chlorophenylalanine), a
+not observe any objective improvement in that group.                  serotonin inhibitor, blocks the eﬀect of acupuncture over
+Although we did not observe signiﬁcant deterioration                  the gastrointestinal system. Similarly, Lee and colleagues
+in daytime sleepiness between the groups, the control                 showed that a single session of acupuncture stimulation
+group as well as the sham acupuncture group showed                    increased serotonin synthesis and tryptophan hydroxy-
+an increase in daytime sleepiness while the acupuncture               lase expression in the dorsal raphe in non-exercised rats
+group showed a signiﬁcant improvement in this subjec-                 [33]. The central mechanism underlying reduction of
+tive parameter, showing that real acupuncture actually                activity of airway dilator muscles during sleep are not ful-
+had an eﬀect on the sleep disorder.                                   ly elucidated. Nevertheless, it is known that there is a
+    Reports of uncontrolled clinical trials with acupunc-             strong projection of caudal raphe serotonergic neurons
+ture abound in the medical literature [27]. Such trials,              to upper airway motorneurons, and the ﬁring of caudal
+however, can only give preliminary indications of the gen-            raphe neurons declines with sleep particularly during
+eral eﬀectiveness of a speciﬁc treatment. In the absence of           REM sleep, consequently diminishing the airway muscle
+a control group, researchers are unable to ascertain                  tonus [34]. As a consequence, the decline of the upper air-
+whether changes reported to have occurred during the tri-             way motor activity associated with sleep in OSAS patients
+al were attributable to the particular method used [28].              might result from an impaired serotonin mediated excit-
+Here, we report that several of the measured parameters               atory drive by caudal raphe neurons. Studies have already
+over the 3 month period that comprised the study became               shown that the administration of L-tryptophan, a seroto-
+signiﬁcantly worse in patients in the control group. Possi-           nin precursor [35] as well as the administration of a sero-
+ble ethical concerns that could be raised by such study               tonin reuptake blocker [36], reduces the number of
+design can readily be dismissed. First, for a country where           apneas, in some patients. Taken together, these observa-
+the minimum wage is approximately US $90 per month,                   tions lead us to propose a working hypothesis that the
+the cost of a CPAP (approximately US $1,000 for the                   improvement observed in the acupuncture group, mainly
+device alone) is inaccessible. Second, the public health sys-         in PSG respiratory parameters, might be related to the
+tem does not have enough funds to cover the treatment of              eﬀects of acupuncture for releasing serotonin from caudal
+moderate OSAS with CPAP. And third, it is a well-estab-               raphe neurons. This speculative hypothesis is currently
+lished fact that many patients treated with CPAP have                 being tested in our laboratory by a larger trial where we
+low compliance [5]. Thus, the absence of adequate treat-              are going to evaluate 5HT levels in platelets for patients
+ment has catastrophic consequences for the patients.                  submitted to acupuncture treatment.
+    Asthma and allergic rhinitis are well-known risk fac-                There is strong evidence that inﬂammatory cell inﬁltra-
+tors for OSA. Previous acupuncture trials for asthma                  tion and denervation changes aﬀect not only the mucosa
+[29] and allergic rhinitis [30] found preliminary evidence            but also the upper airway muscles of patients with OSAS
+for its eﬀectiveness. The resolution of OSA in the current            [10]. This may have important implications for the ability
+study could thus have been secondary to the resolution                to generate adequate muscular dilating forces during
+of asthma and allergic rhinitis. However, only one                    sleep. We hypothesize that the local eﬀect of acupuncture
+patient in the acupuncture group had a history of asth-               may also aﬀect this process of inﬂammation.
+ma. During the trial, this patient did not develop any                   The most prominent ﬁnding of this study is a major
+crisis. There was a patient in the sham group with con-               improvement in AHI with active acupuncture. We have
+trolled allergic rhinitis. We did not observe any changes             found preliminary evidence that acupuncture is eﬀective
+in this patient during the course of the treatment. Thus,             in the treatment of OSAS. This work, however, must be
+it is unlikely that the current eﬀect is an indirect conse-           replicated and the observation period after treatment
+quence of the resolution of asthma or allergic rhinitis.              should be extended in order to evaluate the duration
+    We found no signiﬁcant change in BMI in all three                 of the improvement obtained and also to establish well
+groups. Therefore, we suggest that the beneﬁcial eﬀects               deﬁned treatment protocols. If these ﬁndings are con-
+of acupuncture in our study were not due to changes in                ﬁrmed, acupuncture treatment may have a role in the
+BMI. Another issue that should be considered is the                   management of sleep apnea.
+50                                              A.O. Freire et al. / Sleep Medicine 8 (2007) 43–50
+
+Acknowledgements                                                            [13] Stux G. Acupuncture treatment. In: Stux G, Pomeranz B, editors.
+                                                                                 Acupuncture textbook and atlas. Berlin: Springer; 1987. p.
+                                                                                 261–307.
+   We thank Silvia Conway for the database of the pa-                       [14] Vincent CA, Lewith G. for acupuncture studies. J R Soc Med
+tients and Dr Lia Rita Bittencourt for referral of some                          1995;88:199–202.
+patients. We thank Jair Guilherme dos Santos Jr for                         [15] Ware JE. The SF-36 health survey. In: Spilker B, editor. Quality
+help with the statistical analyses and Prof. Geraldo                             of life and pharmacoeconomic in clinical trials. Philadelphia,
+Lorenzi Filho for critically reviewing the manuscript.                           PA: Lippincott-Raven; 1996. p. 337–45.
+                                                                            [16] Jonhs MW. A new method for measuring daytime sleepiness: the
+   Contributors: AO Freire was responsible for all acu-                          Epworth Sleepiness Scale. Sleep 1991;14:540–5.
+puncture and sham procedures. LE Mello, S M Togeiro,                        [17] Rechtschaﬀen A, Kales A. A manual of standardized terminol-
+Y Yamamura, S Tuﬁk contributed to study conception,                              ogy, techniques and scoring system and sleep stages of human
+supervision, review of the analysed data, and writing of                         subjects. Los Angeles: University of California Brain Informa-
+the report. GCM Sugai contributed to the recruitment,                            tion Service; 1968.
+                                                                            [18] Atlas Task Force of the American Sleep Disorders Association.
+randomisation of the patients and data analysis. FS                              EEG arousal: scoring rules and examples. Sleep 1992;15(2):173–84.
+Chrispin and SM Togeiro contributed to the analyses                         [19] American Academy of Sleep Medicine Task Force. Sleep-related
+of the polysomnography exams.                                                    breathing disorders in adults: recommendations for syndrome
+   Funding: FAPESP (Fundação de Apoio a Pesquisa do                            deﬁnition and measurement techniques in clinical research. Sleep
+Estado de Sao Paulo) sponsored this trial as part of a PhD                       1999;22(5):667–89.
+                                                                            [20] Holander M, Wolfe DA. Nonparametric statistical meth-
+thesis and larger research project. The sponsors of the                          ods. New York: Wiley; 1973. p. 503.
+study had no role in the study design, the planning of                      [21] Landis JR, Koch GG. mesuarement of observer agreement for
+the data analysis or interpretation of the results.                              categorical data. Biometrics 1997;33:159–74.
+   Competing interest: None declared.                                       [22] Bardwell WA, Ancoli-Israel S, Berry CC, et al. Neuropsycho-
+   Ethical approval: Universidade Federal de São Paulo                          logical eﬀects of one-week continuous positive airway pressure
+                                                                                 treatment in patients with obstructive sleep apnea: a placebo-
+Ethics Committee, Brazil.                                                        controlled study. Psycosom Med 2001;63:579–84.
+                                                                            [23] Condos R, Norman RG, Krihnasamy I, et al. Flow limitation as
+References                                                                       a noninvasive assessment of residual upper airway resistence
+                                                                                 during continuous positive airway pressure therapy of obstructive
+ [1] Shahar E, Whitney CW, Redline S. Sleep-disordered breathing                 sleep apnea. Am J Respir Crit Care Med 1994;150:475–80.
+     and cardiovascular disease: cross-sectional results of the Sleep       [24] Ernst E, Resch KL. The concept of the perceived and true placebo
+     Heart Health Study. Am J Respir Crit Care Med 2001;163:19–25.               eﬀect. Br Med J 1995;311:551–3.
+ [2] National Commission on Sleep Disorders Research. Wake up               [25] Kaptchuk TJ. The placebo eﬀect in alternative medicine: can the
+     America: a national sleep alert. 1993: 1.                                   performance of the healing ritual have clinical signiﬁcance? Ann
+ [3] Loube DI, Gay PC, Strohl KP. Indications for positive airway                Intern Med 2002;136:817–25.
+     pressure treatment of adult obstructive sleep apnea patients. A        [26] Taub HA, Mitchell JN, Stuber FE, et al. Analgesia for operative
+     consensus statement. Chest 1999;115:863–6.                                  dentistry: a comparison of acupuncture and placebo. Oral Surg
+ [4] Engleman HM, Martin SE, Deary IJ, et al. Eﬀect of continuous                1979;48:205–10.
+     positive airway pressure treatment on daytime function in sleep        [27] Ernst E, White AR. A review of problems in clinical acupuncture
+     apnea/hypopnoea syndrome. Lancet 1994;343:572–5.                            research. Am J Chin Med 1997;25:3–11.
+ [5] Palmer S, Selvaraj S, Dunn C, et al. Annual review of patients         [28] Vickers AJ, de Craen AJ. Why use placebos in clinical trials? A
+     with sleep apnea/hypopnea syndrome—a pragmatic randomized                   narrative review of the methodological literature. J Clin Epidem-
+     trial of nurse home visit vs. consultant clinic review. Sleep Med           iol 2000;53:157–61.
+     2004;5:61–5.                                                           [29] Chu KA, Wu YC, Lin MH, Wang HC. Acupuncture resulting in
+ [6] Lee SH, Chung SH, Lee JS, et al. Eﬀects of acupuncture on the 5-            immediate bronchodilating response in asthma patients. J Chin
+     hydroxytryptaminase synthesis and tryptophan hydroxylase                    Med Assoc 2005;68(12):591–4.
+     expression in the dorsal raphe of exercised rats. Neurosci Lett        [30] Ng DK, Chow PY, Ming SP, et al. A double-blind, randomized,
+     2002;332:17–20.                                                             placebo-controlled trial of acupuncture for the treatment of child-
+ [7] Kiser RS, Khatami MJ, Gatchel RJ, et al. Acupuncture relief of              hood persistent allergic rhinitis. Pediatrics 2004;114(5):1242–7.
+     chronic pain syndrome correlates with increase plasma met-             [31] Bittencourt LRA, Suchecki D, Tuﬁk S, et al. The variability of
+     enkephalin concentrations. Lancet 1983;17:1394–6.                           the apnea–hypopnea index. J Sleep Res 2001;10:245–51.
+ [8] Ernst M, Lee MHM. Sympathetic vasomotor changes induced by             [32] Sugai GC, Freire AO, Tabosa A, et al. Serotonin involvement in
+     manual and electrical acupuncture of the Hoku point visualized              the electro acupuncture- and moxibustion- induced gastric emp-
+     by thermography. Pain 1985;21:25–33.                                        tying in rats. Physiol Behav 2004;82:855–61.
+ [9] Zhang RX, Lao L, Wang X, et al. Electroacupuncture attenuates          [33] Lee SH, Chung SH, Lee JS. Eﬀects of acupuncture on the 5-
+     inﬂammation in a rat model. J Altern Complement Med                         hydroxytryptamine sysnthesis and tryptophan hydroxylase
+     2005;11(1):135–42.                                                          expression in the dorsal raphe of exercised rats. Neurosci Lett
+[10] Boyd JH, Petrof BJ, Hamid Q, et al. Upper Airway Muscle                     2002;332:17–20.
+     Inﬂammation and Denervation Changes in Obstructive Sleep               [34] Kubin L, Tojima H, Davies RO, et al. Serotonergic excitatory
+     Apnea. Am J Respir Crit Care Med 2004;170:541–6.                            drive to hypoglossal motoneurons in the decerebrate cat. Neurosci
+[11] Kubin L, Tojima H, Davies RO, et al. Serotonergic excitatory                Lett 1992;139:243–8.
+     drive to hypoglossal motoneurons in the decerebrate cat. Neurosci      [35] Schmidt HS. L-tryptophan in the treatment of impaired respira-
+     Lett 1992;139:243–8.                                                        tion during sleep. Bull Eur Physiol Respir 1982;19:625–9.
+[12] Norheim AJ. Adverse eﬀects of acupuncture. Lancet                      [36] Hanzel DA, Proia NG, Hudgel DW. Response of obstructive sleep
+     1995;345:1576.                                                              apnea to ﬂuoxetine and protriptyline. Chest 1991;100:416–21.
+

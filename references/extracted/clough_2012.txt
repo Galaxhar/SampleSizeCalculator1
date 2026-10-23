@@ -1,0 +1,812 @@
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ RESEARCH                                                                                                                                        Open Access
+
+Statistical protein quantification and significance
+analysis in label-free LC-MS experiments with
+complex designs
+Timothy Clough1, Safia Thaminy2,3, Susanne Ragg4, Ruedi Aebersold2,5, Olga Vitek1,6*
+
+
+  Abstract
+  Background: Liquid chromatography coupled with tandem mass spectrometry (LC-MS/MS) is widely used for
+  quantitative proteomic investigations. The typical output of such studies is a list of identified and quantified
+  peptides. The biological and clinical interest is, however, usually focused on quantitative conclusions at the protein
+  level. Furthermore, many investigations ask complex biological questions by studying multiple interrelated
+  experimental conditions. Therefore, there is a need in the field for generic statistical models to quantify protein
+  levels even in complex study designs.
+  Results: We propose a general statistical modeling approach for protein quantification in arbitrary complex
+  experimental designs, such as time course studies, or those involving multiple experimental factors. The approach
+  summarizes the quantitative experimental information from all the features and all the conditions that pertain to a
+  protein. It enables both protein significance analysis between conditions, and protein quantification in individual
+  samples or conditions. We implement the approach in an open-source R-based software package MSstats
+  suitable for researchers with a limited statistics and programming background.
+  Conclusions: We demonstrate, using as examples two experimental investigations with complex designs, that a
+  simultaneous statistical modeling of all the relevant features and conditions yields a higher sensitivity of protein
+  significance analysis and a higher accuracy of protein quantification as compared to commonly employed
+  alternatives. The software is available at http://www.stat.purdue.edu/~ovitek/Software.html.
+
+
+Background                                                                             molecular ions by the mass spectrometer according to
+Liquid chromatography coupled with tandem mass spec-                                   their ratio of mass to charge. One instrument run yields
+trometry (LC-MS/MS) is widely used for relative protein                                a two-dimensional LC-MS profile, where peaks corre-
+quantification in complex biological mixtures. Several                                 spond to peptide ions, and the intensities of the peaks are
+quantification strategies have been described that can                                 related to the abundances of the peptides. The molecular
+broadly be grouped as those using stable isotope labeling                              ions representing specific LC-MS peaks can be further
+and label-free methods [1-3]. Label-free methods can be                                fragmented in the mass spectrometer by collision acti-
+further differentiated into methods based on spectral                                  vated dissociation to generate fragment ion spectra (MS/
+counting [4] and methods that infer analyte quantities                                 MS), which are informative of the amino acid sequences
+from the ion current of the respective molecular ions.                                 of the peptides. The label-free shotgun LC-MS/MS work-
+The latter method has been implemented under the term                                  flow [5,6] is popular because it requires minimal sample
+label-free LC-MS. It consists of the enzymatic digestion                               processing and is relatively inexpensive. A variety of com-
+of proteins into a mixture of peptides, the separation of                              putational tools are now available to detect, quantify, and
+the peptides by capillary liquid chromatography, the ioni-                             align LC-MS peaks across multiple samples and runs,
+zation of the peptides, and the further separation of the                              and to annotate them when possible with peptide and
+                                                                                       protein identities [7].
+* Correspondence: ovitek@stat.purdue.edu
+1
+                                                                                         The output of the LC-MS/MS workflow is a list of
+ Department of Statistics, Purdue University, West Lafayette, IN, USA
+Full list of author information is available at the end of the article
+                                                                                       features formed by identified, quantified, and aligned
+
+                                         © 2012 Clough et al.; licensee BioMed Central Ltd. This is an open access article distributed under the terms of the Creative Commons
+                                         Attribution License (http://creativecommons.org/licenses/by/2.0), which permits unrestricted use, distribution, and reproduction in
+                                         any medium, provided the original work is properly cited.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                           Page 2 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+LC-MS peaks. Multiple features can represent a protein         experimental conditions, even when the number of repli-
+when we observe differentially charged ions of the same        cates in each condition is relatively small. Increasing the
+peptide, or several peptides of the protein. In many           number of conditions is advantageous biologically,
+investigations, specifically in systems biology [8] and in     because a deeper insight can be obtained by considering
+the discovery of biomarkers of disease [9,10], it is neces-    multiple inter-related conditions of the same model
+sary and appropriate to summarize all the features into        organism, or by acquiring repeated measurements on
+protein-level conclusions. Such summarization has two          the same biological subject. It is also advantageous sta-
+goals. First, protein significance analysis combines the       tistically, as it improves the accuracy of protein signifi-
+measurements for a protein across peptides, charge             cance analysis and protein quantification.
+states, and technical replicates across samples and con-          In previous work, we introduced the linear mixed effects
+ditions, and detects proteins that change in abundance         modeling framework for protein significance analysis and
+between conditions more systematically than can be             protein quantification in label-free LC-MS/MS experi-
+expected by random chance. Second, protein quantifica-         ments with simple, comparative designs [14]. The contri-
+tion combines the measurements for a protein within a          bution of the current manuscript is to extend this work to
+particular biological sample and estimates the abun-           arbitrary complex experimental designs, support the
+dance of the protein in the sample, e.g., for use in clus-     proposed framework with a software solution, and demon-
+tering or classification. Thus, the accuracy of both           strate the advantage of a joint modeling of multiple experi-
+protein significance analysis and protein quantification       mental conditions to practitioners with a limited statistical
+has important implications for the biological or clinical      background. The open-source R [20]-based software pack-
+conclusions.                                                   age MSstats automatically recognizes the design of the
+   Many technologies other than LC-MS/MS require mea-          experiment, and can be used for both protein significance
+surement summarization, and the solution often involves        analysis and protein quantification. We show that the fra-
+some form of averaging. E.g., in Affymetrix oligonucleotide    mework provides meaningful results even with a moderate
+microarrays a gene is represented by 11-16 oligonucleo-        number of biological replicates, and in experiments with
+tides [11], and the expression of the respective gene is       noisy and missing LC-MS peaks.
+quantified with Tukey median polish, implemented as part
+of the robust multi-array averaging (RMA) normalization        Methods
+and summarization [12,13]. Unfortunately, a similar such       Dataset 1: A 3-way factorial study of breast cancer
+summarization of the (log-)intensities of features mapped      cell lines
+to a protein fails to produce accurate results in label-free   The study aimed at determining the effect of low oxygen
+LC-MS/MS, and it undermines the quality of the result          level (hypoxia) as compared to the normal oxygen level
+[14]. Unlike in microarrays where the probes are designed      (normoxia) on protein abundance in two breast cancer
+and optimized, the LC-MS/MS workflow has little control        cell lines, low-invasive MCF7 and high-invasive Hs578T.
+over the observed features. It yields proteins with features   Two cultures (biological replicates) of each cell line were
+that vary in number, have many interferences due to co-        treated for either 6 or 24 hours in a normoxic or hypoxic
+eluting, mis-identified or mis-quantified peptides, and        condition. The study had a complex design in that three
+have frequently missing intensities of peaks. Furthermore,     factors of interest, invasive potential (low, high), treatment
+the peptide ions derived from a specific protein vary in       (hypoxia, normoxia), and time (6 h, 24 h), were examined
+their ionization efficiency.                                   simultaneously (Figure 1). We refer to each of the eight
+   Measurement summarization in label-free LC-MS/MS            possible combinations of the factors as a condition. Since
+is improved by a probabilistic modeling, which explicitly      separate cultures were grown in each condition, the
+characterizes all the sources of variation. Such models        experiment had a 3-way factorial design.
+have been increasingly introduced into quantitative pro-         Independent extraction procedures [21] were performed
+teomics and proven superior to averaging in both accu-         on each culture (i.e., biological replicate), the order of the
+racy and sensitivity [14-19]. However, most of these           samples was randomized, and three separate mass spectro-
+models are applicable to restricted experiment types,          metry runs (i.e., technical replicates) were acquired for
+e.g., the comparison of protein abundances between a           each sample on a hybrid LTQ-Orbitrap mass spectrometer
+limited number of conditions. To compensate for the            (ThermoFischer Scientific, San Jose, CA, USA), producing
+variation and for the missing values, these models             48 runs. LC-MS features were quantified, aligned, and
+require a fairly large number of biological replicates.        annotated with peptide and protein identities using the
+   In this work, we argue that the accuracy of protein         OpenMS software [22]. The feature intensities were log-
+significance analysis and protein quantification can be        transformed and subjected to constant normalization [23].
+enhanced by simultaneously studying a larger number of         The signal processing identified 278 proteins groups with
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                            Page 3 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 1 Study of breast cancer cell lines. Two cultures from two breast cancer cell lines (low-invasive MCF7 and high-invasive Hs578T) were
+ treated with two oxygen levels (normoxia, hypoxia) for two periods of time (6 and 24 hours). We refer to each combination of these treatments
+ as condition. Separate cultures were grown in each condition, and therefore the experiment had a 3-way factorial experimental design.
+
+
+two to 19 unambiguously mapped LC-MS features per                        analyzed in single replicate runs using Thermo-Finnigan
+group, and with up to 40 missing peak intensities per                    linear ion-trap mass spectrometry, producing 130 runs.
+feature.                                                                 LC-MS features were quantified, aligned, and annotated
+  Additional details on the dataset are available in Sup-                with peptide and protein identities as previously described
+plementary Section 1.                                                    [24]. When a peak was not detected in a run the workflow
+                                                                         reported the background noise, and therefore the dataset
+Dataset 2: A time course study of subjects with                          had no missing peak intensities. The intensities were log-
+osteosarcoma                                                             transformed and subjected to quantile normalization [23].
+The study was conducted at the Indiana University School                 To reduce the number of peptides with ambiguous map-
+of Medicine in Indianapolis. It involved 14 subjects with                pings to protein isoforms, each peptide was mapped to the
+childhood osteosarcoma, for which serum samples were                     underlying Entrez gene ID, and the signal processing iden-
+collected at multiple time points during the course of                   tified 121 gene groups with two to 295 peptides per group.
+treatment, at the end of the treatment, and off-treatment                For simplicity, we refer to the gene groups as proteins.
+(Figure 2). During the course of the study, chemotherapy
+and surgery were performed according to the Children’s                   Proposed significance analysis
+Oncology Group protocol P9754. In addition to the sub-                   We define protein significance analysis as a sequence of
+jects with osteosarcoma, the study involved 29 healthy                   four steps: (1) statement of the problem, i.e., definition
+subjects for which blood samples were collected at a single              of the comparisons of interest and of the scope of con-
+time point. The institutional review board at Indiana Uni-               clusions before collecting the data, (2) exploratory data
+versity approved the study protocol, and written informed                analysis, i.e., visualization of protein-specific features for
+consent was obtained from all subjects before enrollment.                quality control, (3) model-based analysis, i.e., representa-
+The study had a complex design in that it had two factors                tion of the quantitative measurements in a probabilistic
+of interest, disease (osteosarcoma, control) and time, and               model, and determination of proteins that change in
+multiple measurements on the disease subjects but not on                 abundance between conditions, while controlling the
+the controls. Therefore, the study had a combination of a                False Discovery Rate (FDR), and (4) statistical design of
+time course and a group comparison design. Due to the dif-               the follow-up experiments. The four steps are common
+ficulty of obtaining samples from subjects in longitudinal               to many experiments that study differences in analyte
+studies in a clinical setting, many subjects had missing                 abundance, and are described, e.g., in Chang et al. [25].
+time points.                                                             In this manuscript we emphasize the details that are
+   Albumin was depleted prior to tryptic digest, the order               specific to label-free LC-MS/MS experiments with com-
+of the samples was randomized, and each sample was                       plex designs.
+
+
+
+
+ Figure 2 Study of subjects with osteosarcoma. Chemotherapy treatment was administered according to the Children’s Oncology Group
+ protocol P9754. Blood samples were collected at the weeks indicated by colored boxes before chemotherapy was administered. The study had
+ a combination of a time course and a group comparison design.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                            Page 4 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+Step 1: Statement of the problem                                  the variation is homogenous across features and condi-
+Experiments with complex designs simultaneously                   tions, and whether changes between conditions can
+answer multiple related questions. In the study of breast         be due to the biological signal or to a technical artifact.
+cancer cell lines we can compare, e.g., the abundance of          Figure 3(c) is an additional trellis display for time course
+proteins between oxygen treatments in the high invasive           experiments, where each panel represents a subject. The
+line, at a specific time point such as six hours of treat-        display allows us to evaluate the consistency of both
+ment. Multiple other, similar questions could be asked            within-subject and between-subject changes in abundance.
+from the dataset. Although such comparisons can be per-             The plots are generated automatically for all proteins
+formed by separately analyzing the runs within the                in MSstats with a one-line command. The proteins
+respective conditions and ignoring the rest of the data,          selected in Figure 3 show only minor interferences in
+we show in Section 3 that the joint modeling of all the           feature intensities, and the large changes between condi-
+available conditions increases our ability to detect              tions appear systematic. An example of a protein with
+changes that are relevant for the specific question asked.        interferences is given in Supplementary Section 1.2.
+As an illustration, here we compare the protein abun-             Step 3: Model-based analysis
+dance after six hours of normoxia in the low invasive ver-        The conclusions regarding changes in protein abun-
+sus the high invasive cell lines, on average over the             dance are formalized using statistical modeling and
+biological replicates. In the study of subjects with osteo-       inference. To represent a complex experimental design
+sarcoma we compare protein abundance prior to surgery             we introduce a unique identifier for each condition, i.e.,
+(week 10) and post-surgery (week 13). The Step 3 below            for each combination of the available experimental fac-
+enables arbitrary complex comparisons of this kind.               tors. For example, in the experiment of breast cancer
+   Statement of the problem also specifies the scope of the       cell lines each combination of cell line type, oxygen
+conclusions, i.e., the interpretation that we attribute to the    treatment, and exposure time forms one condition. In
+biological and technical replication. The reduced scope of        the study of subjects with osteosarcoma, each combina-
+biological replication means that we restrict our conclu-         tion of disease status and time forms one condition. We
+sions to the subjects in the study, e.g., to the 43 subjects in   further introduce a unique identifier for each subject,
+the study of osteosarcoma. This is appropriate for early-         i.e., for each biological replicate.
+stage screening experiments. The expanded scope of biolo-            The proposed linear mixed effects model for the case of
+gical replication means that we would like our conclusions        factorial experiments is shown in Figure 4. The model
+to hold beyond the selected subjects, and for the underly-        decomposes feature intensities of a protein into the con-
+ing populations. E.g., in the study of subjects of osteosar-      tributions of conditions (i.e., the differences in protein
+coma this means that we expand our conclusions beyond             abundance due to the factors of interest), LC-MS features
+the selected 43 subjects, and to the entire population that       (i.e., the differences in average signal intensities between
+these subjects represent. This is necessary for experiments       the features), and biological replicates (i.e., the natural
+at the validation stage. The choice of the scope is required      biological differences in protein abundance between the
+for all statistical models and all experimental designs           subjects). The model accounts for interferences in the
+[25,26] and Step 3 below enables this choice. Section 3           quantitative profiles of features across conditions with
+illustrates that in addition to the important differences in      the statistical interaction feature × condition. For time
+interpretation, the scope of biological replication impacts       course experiments the model is modified to account for
+the sensitivity and the specificity of the results. Therefore,    the between-subject heterogeneity of changes in protein
+the scope of replication should be specified according to         abundance in time (Figure 4). The model is designed for
+the goals of the experiment, prior to collecting the data.        a protein quantified by at least two features, but the
+Step 2: Exploratory data analysis                                 implementation in MSstats allows for proteins repre-
+Experiments with complex designs are more likely to               sented by a single feature by specifying a model without
+induce heterogeneous stochastic variation due to the              the feature and feature × condition terms.
+joint effects of multiple conditions on protein abun-                The model expresses the reduced scope of biological
+dance. Therefore, MSstats implements visualization                replication by viewing the between-subject changes in
+plots that assess the quality of the data and that can            abundance as fixed values. Alternatively, it expresses the
+help to guide the downstream analysis. A profile plot             expanded scope of biological replication by viewing these
+such as in Figure 3(a) emphasizes quality control. The            changes as randomly sampled from the underlying popu-
+plot helps a user to detect mis-identified features with          lation. In practice a model with one of the two forms is
+inconsistent quantitative profiles, or to remove features         chosen based on the desired scope of conclusions, and is
+with excessive quantitative interferences or missing              specified for every protein quantified in the investigation.
+values. A trellis display [27] such as in Figure 3(b) visua-      We show in Section 3 that the reduced scope of replica-
+lizes feature-level comparisons. It helps assess whether          tion leads to higher sensitivity of detecting changes in
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                             Page 5 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 3 Exploratory data analysis in MSstats. Y-axis: Log-intensities, lines link log-intensities of LC-MS features, averaged over all replicates.
+ (a) Quality control: profile plot of the protein SLC44A2 in the study of breast cancer cell lines. X-axis: all conditions. (b) Feature-level
+ comparisons: trellis display of the protein SLC44A2 in the study of breast cancer cell lines. X-axis: one factor (time). Each panel: the combination
+ of the other factors. (c) Feature-level comparisons for time course experiments: trellis display of the Entrez ID 28299 of the study of subjects with
+ osteosarcoma. Each panel: a subject. X-axis: time.
+
+
+abundance as compared to the expanded scope of repli-                             Specifying a separate variance parameter σError,ijk
+                                                                                                                                   2
+                                                                                                                                        for each
+cation, but that this comes at the cost of a lower                                feature, condition, and subject in experiments with com-
+specificity.                                                                      plex designs leads to a prohibitively large number of para-
+  A property of label-free LC-MS/MS is that, in the                               meters and overfits the data. Instead, MSstats
+absence of technical replication, biological variation is                         implements the iterative least squares modeling procedure
+confounded with technical variation. Therefore, conclu-                           [28]. Residual plots such as in Figure 5(a) visualize the
+sions from the model with reduced scope of biological                             relationship between the predicted log-abundance and the
+replication are also restricted to the performed mass                             unexplained technical variation. The relationship is mod-
+spectrometry runs, unless the experiment also incorpo-                            eled in a flexible loess fit [29] (Figure 5(b), Supplementary
+rates technical replication.                                                      Section 1.3), and LC-MS peaks with larger variances have
+  The technical variation in the log-intensities of LC-MS                         smaller weights in the resulting model-based conclusions.
+peaks is approximated relatively well by the Normal distri-                         A challenge in experiments with complex designs is in
+bution. However, the extent of this variation is not neces-                       deriving the comparisons in Step 1 from this compre-
+sarily constant across all features and conditions.                               hensive model. In the proposed approach this is
+
+
+
+
+ Figure 4 Linear mixed effects model for a factorial experiment. i = 1, ..., I is the index of a feature, j = 1, ..., J the index of a condition, k = 1, ..., K
+ the index of a biological replicate, and l = 1, ..., L of a technical replicate. Notation S(C)k(j) is read as “biological replicate within a condition”, and is
+ the unique identifier of each biological replicate. σError,ijk
+                                                      2
+                                                                is the variance of the measurement error and σS2 the between-subject variance in the
+ underlying population. μ111 is the expected log-intensity of the arbitrary chosen first feature, first condition, and first biological replicate. (a) and (b)
+ are two alternative interpretations of the term subject, which distinguish reduced and expanded scopes of biological replication. A separate such
+ model is specified for each protein.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                       Page 6 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 5 Residual plots. Residual plots for protein CDH13 in the study of breast cancer cell lines. The protein has 16 features, residuals from the same
+ feature have the same color. (a) Residuals versus predicted peak log-abundance. (b) Absolute residuals versus predicted mean peak abundance are
+ modeled by a loess curve. Values on the curve predicted for each LC-MS peak are used as weights in the iterative least squares model fit.
+
+
+achieved by (1) translating each comparison into a                             Step 4: Design of follow-up experiments
+model-based quantity of interest, (2) expressing the                           Sample size (i.e., the number of biological and technical
+quantity as a linear combination of the model para-                            replicates per condition required to detect a fold change)
+meters, and (3) estimating this linear combination and                         can be used to compare experimental strategies. In
+the associated standard error from the data, separately                        experiments with complex designs it can indicate
+for each protein. Figure 6 illustrates this for the factorial                  whether the inclusion of additional conditions or time
+study of breast cancer cell lines, and Figure 5 for the                        points will help detect biologically significant changes
+study of subjects with osteosarcoma. In all investiga-                         given the constraints of sample availability and cost. Sam-
+tions, a larger number of replicates provides a more                           ple size calculations based on linear models have been
+accurate estimation of the quantities.                                         described numerous times in general [31,32] and for pro-
+   The most difficult aspect of these steps is in determin-                    tein significance analysis in particular [33,34]. They take
+ing the coefficients of the linear combination. The coef-                      as input (1) q, the desired FDR in the protein list, (2) b,
+ficients depend on the comparison of interest, type,                           the allowed probability of not detecting a change in
+number, and layout of the experimental factors, on the                         abundance on average over all the proteins (i.e., average
+numbers of features mapped to the protein, and on                              Type II error), (3) δ, the minimal fold change in protein
+whether we reduce or expand the scope of biological                            abundance that one would like to detect, (4) m0/m0 + m1,
+replication. The implementation in MSstats automati-                           the anticipated proportion of truly differentially abundant
+cally derives all such expressions from the input dataset                      proteins in the comparison, and (5) σError
+                                                                                                                        2 , the anticipated
+
+and streamlines the testing for users with a limited sta-                      technical variation (and also σS , the anticipated biological
+                                                                                                              2
+
+tistics background. Finally, MSstats follows the stan-                         variation, for models with expanded scope of biological
+dard testing procedure and calculates the ratio of the                         replication). While (1)-(3) have generally accepted values,
+estimated differences and theirs standard error (in statis-                    (4)-(5) depend on the specific experiment and on its bio-
+tical terminology, the test statistic) for each protein, com-                  logical and technical variation. MSstats derives (4) and
+pares the test statistics to the Student distribution with                     (5) based on the current dataset, and calculates the sam-
+the appropriate degrees of freedom to obtain p-values,                         ple size for a future investigation with a user-specified
+and adjusts the p-values for multiple comparisons to con-                      number of features, conditions, and technical replicates
+trol the False Discovery Rate in the list of differentially                    per condition, as described in reference [28] (see Supple-
+abundant proteins [30].                                                        mentary Section 1.3.6 for illustration). We use the special
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                  Page 7 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 6 Model-based comparison. Model-based comparison of protein abundance between cell line types after six hours of normoxia, with
+ reduced scope of biological replication. All notation is as in Figure 4. μ̄[high, nm ,6]. is the expected log-abundance of the protein in the high-
+ invasive line under normoxia, after 6 hours of exposure, on average in all the observed replicates. Other conditions are denoted similarly. “^”
+ indicates that the terms are estimated from the data.
+
+
+
+case of balanced datasets (i.e., datasets with the same                     number of related conditions J increases the degrees of
+number of LC-MS runs in each condition and no missing                       freedom, which has the effect of decreasing the lower
+peaks) and a representative (e.g., median) variance over                    bound of the detectable fold change. We show this
+all the proteins, for which the test statistic has a relatively             empirically in Section 3.
+simple form (e.g., for the study of breast cancer cell lines
+in Figure 6 and Supplementary Figure 3 with reduced                         Proposed protein quantification
+and expanded scope of biological replication, and Supple-                   A distinct goal of label-free LC-MS/MS investigations is
+mentary Figures 5 and 6 for the time course study). Using                   protein quantification, i.e., the estimation of protein abun-
+the comparison in Figure 6 as an example, a lower bound                     dance in a biological replicate, or in one condition on
+on the fold change δ one can detect in a future investiga-                  average over all the replicates. In experiments with com-
+tion with reduced scope of biological replication is given                  plex designs these estimates are of a particular interest, as
+by                                                                          they serve as input to machine learning tools to generate
+                                                                            new biological knowledge from the complex datasets. For
+          σ̂Error
+            2
+   δ2 ≥           · (t1−β, df + t1−α/2, df )2 ,                             example, in the study of breast cancer cell lines we can
+           IKL                                                      (1)     cluster the profiles of protein abundance across conditions
+                                             q
+          where α = (1 − β) ·                            ,                  to find functionally related proteins. In the study of sub-
+                                    1 + (1 − q) · m0 /m1
+                                                                            jects with osteosarcoma the profiles can be used to predict
+  and t1-b, df and t1-a/2, df are the 100(1 - b)th and the                  the subject’s therapy response. Such estimates of abun-
+100(1 - a/2)th percentiles, respectively, of the t-distribu-                dance differ from absolute protein quantification [35] in
+tion with df = IJK (L - 1) + (I - 1) J (K - 1) degrees of                   that they are only comparable for a same protein across
+freedom. From the formulae, given a fixed number of                         conditions and runs, but not between proteins.
+features I, and a fixed number of biological replicates K                     Here we argue that the accuracy of relative protein
+and technical replicates L per condition, increasing the                    quantification is enhanced by using the same probabilistic
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                             Page 8 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+framework as in Section 2.3. Similarly to the testing, pro-               account for the missing data in this case. Some authors
+tein abundance in a sample or condition can be expressed                  advocate imputing missing intensities using the estimates
+as a linear combination of the model parameters, and esti-                of background noise [24,36] or by using a classification
+mated from the data together with its standard error.                     technique such as K-nearest neighbor [37]. Others argue
+Figure 7 illustrates the estimation of protein abundance                  against imputation, and transform the peak intensities to
+for the condition given by six hours of normoxia treat-                   binary present/absent values [38], treat the missing inten-
+ment in the high invasive cell line in the factorial study of             sities as censored values as in survival analysis models
+breast cancer cell lines. Figure 7 illustrates a similar esti-            [18,39], or advocate testing a peptide for whether its
+mation for the study of subjects with osteosarcoma. Figure                missing intensities occur more frequently in some experi-
+8 displays the quantifications and the associated confi-                  mental groups than expected at random, in which case
+dence intervals for one proteins in each study, which are                 the peptide is viewed as differentially abundant [40].
+the same proteins as in Figure 3.                                            Since the goal of MSstats is to flexibly represent any
+  MSstats automatically derives the estimates and                         experimental situation, it does not enforce a one-size-
+streamlines the estimation. In Section 3, we show that                    fits-all treatment of missing peaks. Instead it allows the
+the accuracy and the precision of such protein quantifi-                  user to choose one of three options, based on prior bio-
+cation is improved when simultaneously analyzing all                      logical expectations and on the exploratory data analysis
+the available conditions.                                                 plots. First, the user can assume that the intensities
+                                                                          in the specific condition are missing due to low ion
+Proposed treatment of missing LC-MS peaks                                 abundance, and impute the missing values in this condi-
+Experiments with complex designs are particularly sus-                    tion with the average minimum log-intensity across
+ceptible to missing values, as they combine intertwined                   runs. The analysis will reflect the interference in feature
+effects of multiple conditions and a small sample size. An                intensities, but can violate the assumptions of Normality.
+advantage of linear mixed effects models is that they tol-                Second, the user can make no assumptions regarding the
+erate missing LC-MS peaks if each feature has at least                    reason for the missing values. This will require an alter-
+one intensity in each condition [14]. In the presence of                  native assumption that the features have no interference
+missing data the model-based estimates of abundance                       (in other words, the model will not have the feature ×
+differ from average log-intensities, and reflect more accu-               condition statistical interaction in Figure 4). Model-based
+rately the available information. The estimates of varia-                 estimates will account for the missing data, but signifi-
+tion are also adjusted. E.g., the confidence intervals in                 cance analysis may lose sensitivity. The third option is to
+Figure 8(a) vary in width due to the missing feature                      assume that this is a generally poor quality feature, and
+intensities in the study of breast cancer cell lines, and in              remove it entirely from the dataset. In Section 3, we
+Figure 8(b) due to missing time points in the study of                    show that the three treatments of the missing values have
+subjects with osteosarcoma.                                               only a small effect on the detection of differentially abun-
+  When a feature is missing entirely in one condition,                    dant proteins.
+this can be due to the low abundance, but also to other
+reasons unrelated to abundance, e.g., post-translational                  Proposed open-source software implementation
+modifications, or even due to technical reasons. The                      MSstats is implemented in the open-source and open-
+extent of missing values is influenced by the experimental                development environment R [20]. Although the models
+settings. There is currently no consensus on how to best                  for the factorial and the time course experiments are
+
+
+
+
+ Figure 7 Model-based quantification. Model-based quantification of the expected abundance of a protein in the high invasive cell line under
+ six hours of normoxia, on average over replicates of the condition. “^” indicates that the model-based quantities are estimated from the data.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                   Page 9 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 8 Quantification of protein abundance in each condition. Quantification of protein abundance in each condition, on a relative scale
+ that is comparable between conditions of a protein but not between proteins. (a) Study of breast cancer cell lines, protein SLC44A2. (b) Study
+ of subjects with osteosarcoma, Entrez ID 28299. X-axis: condition. Y-axis: model-based estimate of protein log-intensity. Vertical lines are the 95%
+ confidence intervals. The selected proteins are the same as in Figure 3.
+
+
+different, their specification in MSstats is identical.                      interest to perform an analysis at the feature level
+The software requires a unique identifier for each biolo-                    instead of at the protein level, and MSstats also sup-
+gical replicate, and uses the identities to detect the pre-                  ports this option. Supplementary Information contains
+sence of repeated measurements and to internally                             R-based code for steps of the analysis. The software and
+choose the correct model.                                                    the documentation are publicly available at http://www.
+  MSstats is a series of wrappers around the generic                         stat.purdue.edu/~ovitek/Software.html.
+methods lm in the library base and lmer in the library
+lme4 [41]. lm fits linear models where all factors are                       Results
+fixed, and estimates model parameters using ordinary                         We illustrate the performance of the proposed framework
+least squares [28,42]. MSstats uses this function for                        in the two case studies. As an example, for the study of
+models with reduced scope of biological replication.                         breast cancer cell lines, we compare protein abundances
+lmer fits linear mixed effects models with an arbitrary                      between cell line types after six hours of normoxia (i.e.,
+number of random effects, can handle large and unba-                         the comparison in Figure 6). In all the results, for features
+lanced datasets, and estimates model parameters using                        with peak intensities missing in an entire condition the
+restricted maximum likelihood [43]. MSstats uses this                        values were imputed with the average minimum log-inten-
+method for models with expanded scope of biological                          sity across all runs of the experiment (as implemented in
+replication.                                                                 MSstats) unless stated otherwise. For the study of sub-
+  The use of lm and lmer is adapted to the specifics of                      jects with osteosarcoma, we compare protein abundances
+LC-MS/MS. First, since each protein can have a differ-                       prior to surgery (week 10) and post-surgery (week 13), as
+ent number of features, a different number of model                          illustrated in Supplementary Section 2.2. The results for
+terms (i.e., a different design matrix) is implemented for                   both datasets were obtained with reduced scope of biologi-
+each protein. Second, options are implemented to han-                        cal replication unless stated otherwise.
+dle heterogeneous variance and missing values. Finally,
+MSstats automatically derives model-based summaries                          Result 1: Joint modeling of all conditions improves the
+for protein significance analysis and protein quantifica-                    sensitivity of protein significance analysis
+tion, such that the biological comparison is the only                        Figure 9 illustrates the sensitivity of protein significance
+input required from the user. Occasionally, it can be of                     analysis by using three approaches: (1) the proposed
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                    Page 10 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 9 Sensitivity of comparing protein abundance between conditions. Sensitivity of comparing protein abundance between conditions
+ as described at the beginning of Section 3. (a) Study of breast cancer cell lines. (b) Study of subjects with osteosarcoma. X-axis: p-values adjusted
+ to control for the FDR using the approach by Benjamini and Hochberg. Y-axis: number of significant proteins. Solid black line: the proposed joint
+ modeling of all conditions. Dashed red line: a linear mixed effects model that represents the conditions of interest, and ignores the rest of the data.
+ Dashed green line: a naïve analysis, which averages feature intensities in each replicate and uses a t-test for significance analysis.
+
+
+analysis, i.e., the proposed joint modeling of all condi-                     Result 2: Joint modeling of all conditions reduces the
+tions, (2) a pairwise analysis, i.e., a linear mixed effects                  required sample size
+model that only represents the conditions in the compar-                      Figure 10 shows that a joint modeling of all conditions
+ison, and (3) a naïve analysis, which averages feature                        requires a smaller number of biological replicates to detect
+intensities in each replicate, retains the averages of repli-                 a given fold change than the alternative approaches, which
+cates corresponding to the conditions in the comparison,                      only use measurements from the particular conditions in
+and uses a t-test for protein significance analysis. The                      the comparison of interest. This is due to (1) the relation-
+pairwise analysis and the naïve analysis both only con-                       ship described in Step 4 of Section 2.3, i.e., increasing the
+sider measurements from conditions in the comparison                          number of related conditions increases the available degrees
+of interest. For the study of breast cancer cell lines, this                  of freedom and reduces the lower bound of the detectable
+amounts to ignoring all the measurements on the cell                          standardized fold change, and (2) the fact that, although we
+lines under the hypoxia treatment. For the study of sub-                      are only interested in a subset of the conditions, the entire
+jects with osteosarcoma, this amounts to retaining only                       dataset is used to characterize the underlying variation, and
+the measurements on subjects prior to surgery (week 10)                       yields a more accurate estimate of the variation. The differ-
+and post-surgery (week 13), and ignoring the rest.                            ence is particularly apparent for small fold changes.
+   The figure shows, for each analysis, the number of                           In addition to the factors outlined in Section 2.3, the
+proteins with an FDR-adjusted p-value below various                           sample size is strongly affected by the experimental
+p-value cut-offs. The results indicate an increased sensi-                    design. A time course design, such as in the study of sub-
+tivity of joint modeling over the pairwise analysis and the                   jects with osteosarcoma, separates the within-subject and
+naïve analysis in both case studies. While one can expect,                    the between-subject variation. Therefore, a comparison
+in general, a greater improvement in sensitivity by joint                     of conditions (or time points) on the same subjects often
+modeling over the alternative analyses when fewer condi-                      leads to a smaller required sample size. This is illustrated
+tions are considered in a comparison, the extent of the                       by the smaller number of biological replicates in the time
+sensitivity gain varies between experiments, and typically                    course study of osteosarcoma in Figure 10(b) as com-
+increases with the sensitivity of the mass spectrometer,                      pared to the factorial design of breast cancer cell lines in
+and decreases with technical variation in the log-intensi-                    Figure 10(a). As before, the extent of such differences
+ties and with the complexity of biological samples.                           depends on the specifics of the study.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                               Page 11 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 10 Sample size for comparing protein abundance between conditions. Sample size for comparing protein abundance between
+ conditions for a representative protein, in a future experiment with the same experimental structure. (a) Study of breast cancer cell lines. (b)
+ Study of subjects with osteosarcoma. X-axis: minimal fold change that we’d like to detect. Y-axis: the number of biological replicates per group.
+ Solid black line: the proposed joint modeling of all conditions. Dashed red line: a linear mixed effects model that represents the conditions of
+ interest, and ignores the rest of the data. Dashed green line: a naïve analysis, which averages feature intensities in each replicate and uses a
+ t-test for significance analysis. The anticipated proportion of differentially abundant proteins, the number of conditions and the number of
+ technical replicates are as in the current experiments. The number of features per protein and the error variance are set to the median values.
+
+
+Result 3: Reduced scope of biological replication                          in both cell lines. The trade-off of sensitivity and specificity
+increases the sensitivity at the expense of specificity                    is a general and well-known property of reduced and
+Figure 11 illustrates the sensitivity of the models in both                expanded scopes of conclusions; it extends to all model
+case studies. The figure shows that the reduced scope of                   types, and to all experimental designs.
+biological replication leads to a higher sensitivity of detect-
+ing changes in abundance than the expanded scope. How-                     Result 4: Joint modeling of all conditions improves the
+ever, it has been previously demonstrated by simulation or                 precision and the accuracy of protein quantification
+in experiments with known sample composition that the                      Figure 13 displays protein quantifications from the pro-
+sensitivity of the reduced scope of biological replication                 posed joint modeling of all conditions to those from the
+comes at the expense of lower specificity of the compari-                  naïve analysis, which are estimated by the averages of
+sons [14,25,44].                                                           log-intensities in each replicate. Error bars for each quan-
+  Figure 12 illustrates the specificity of the models in the               tification correspond to 95% confidence intervals, reflect-
+study of breast cancer cell lines. For the purpose of illus-               ing the variability in the estimates. For the proposed joint
+tration, for each cell line we combined the exposure time                  modeling, the variability is quantified as shown in Figure
+of the biological replicates under normoxia, and randomly                  7. For the naïve analysis, the variability is quantified by
+assigned them to two artificial groups. We compared pro-                   the standard deviation of the averages. A majority of the
+tein abundances between these two artificial groups using                  confidence intervals from the joint analysis are narrower
+both reduced and expanded scope of biological replication,                 than those from the naïve analysis, indicating a higher
+and recorded the number of proteins with an FDR-                           precision in the quantifications.
+adjusted p-value below various p-value cut-offs. A model                      For the study of breast cancer cell lines, Figure 14
+that identifies fewer changes has higher specificity. Figure               further investigates the accuracy of the two approaches
+12 illustrates the reduction in specificity in models with                 by comparing their standardized log-fold changes, i.e.,
+reduced scope of biological replication as compared to                     test statistics, of the comparison of interest. The figure
+models with expanded scope of biological replication,                      illustrates that the joint modeling of the LC-MS/MS
+which successfully prohibit the discovery of any changes                   intensities yields a fuller range of standardized log-fold
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                  Page 12 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 11 Sensitivity of the proposed model with reduced versus expanded scope of biological replication. Sensitivity of the proposed
+ model with reduced versus expanded scope of biological replication for comparing protein abundances between conditions as described at the
+ beginning of Section 3. (a) Study of breast cancer cell lines. (b) Study of subjects with osteosarcoma. X-axis: p-values adjusted to control for the
+ FDR using the approach by Benjamini and Hochberg. Y-axis: number of significant proteins. Solid black line: reduced scope of biological
+ replication. Dashed red line: expanded scope of biological replication.
+
+
+
+
+ Figure 12 Specificity of the proposed model with reduced versus expanded scope of biological replication. Specificity of the proposed
+ model with reduced versus expanded scope of biological replication in the study of breast cancer cell lines. Results from comparing protein
+ abundances between two artificial groups of replicates within (a) the low invasive cell line under normoxia and (b) the high invasive cell line
+ under normoxia. X-axis: p-values adjusted to control for the FDR using the approach by Benjamini and Hochberg. Y-axis: number of significant
+ proteins. Solid black line: reduced scope of biological replication. Dashed red line: expanded scope of biological replication.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                Page 13 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 13 Precision of relative protein quantifications. (a) Study of breast cancer cell lines, protein SLC44A2. (b) Study of subjects with
+ osteosarcoma, Entrez ID 28299. X-axis: condition. Y-axis: model-based estimate of log-abundance. Vertical lines are the 95% confidence intervals.
+ Solid black lines: protein quantification based on the proposed joint modeling of all conditions. Dashed green lines: protein quantification based
+ on the naïve analysis, which averages feature intensities in each replicate. The proteins are the same as in Figure 3.
+
+
+changes, stemming from a more accurate representation                       biological replicates. As can be seen, the robustness of the
+of the underlying variation in the log-intensities.                         conclusions to the treatment of missing values increases
+                                                                            with the number of biological replicates.
+Result 5: Joint modeling of all conditions is relatively
+robust to the choice of treatment of missing values                         Discussion
+Due to different steps taken in data pre-processing, the                    Our results show that in situations where measurements
+dataset of breast cancer cell lines, unlike the dataset of                  are available from multiple related conditions, the pro-
+subjects with osteosarcoma, contained numerous missing                      posed joint probabilistic modeling and summarization of
+peaks. Therefore, we used this study to investigate the                     all the LC-MS/MS runs leads to more sensitive protein
+effect on the number of detected changes in abundance of                    significance analysis and more accurate and precise pro-
+the three treatments of proteins where at least one feature                 tein quantification than when separately analyzing subsets
+is missing entirely in at least one condition. We restricted                of conditions. The gain is due to a more efficient use of
+the list of proteins in the dataset to a subset of 140 pro-                 the data, and to a more accurate understanding of the sys-
+teins with such missing values. Figure 15 shows the num-                    tematic and random variation.
+ber of differentially abundant proteins obtained after (1)                    A distinctive feature of linear mixed effects models is the
+imputation of the missing condition(s) with the estimate                    ability to distinguish two interpretations that we attribute
+of background intensity, (2) assuming no feature interfer-                  to biological replication. The expanded scope of biological
+ences, and (3) removing the feature from the dataset.                       replication means that we expect to reproduce the results
+Panel (a) illustrates the results for the comparison used                   in a new set of biological replicates that are randomly
+throughout this section (low versus high invasive cell line                 selected from the underlying population. Significance test-
+under normoxia, with 6 hours of exposure), and panel (b)                    ing based on the expanded scope is conservative, and is
+illustrates the same comparison, but on average over 6                      appropriate for confirmatory investigations. On the other
+and 24 hours of exposure times. The panels illustrate that                  hand, a model specifying the reduced scope of conclusions
+the majority of differentially abundant proteins were iden-                 only expects to reproduce the results in a replicate mass
+tified with all three approaches. Moreover, under nor-                      spectrometry analysis of the same biological samples.
+moxia, the comparison in (b) has the same biological                        Protein significance in these models may or may not be
+interpretation as in (a), but it doubles the number of                      reproduced in another set of biological replicates. Such
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                          Page 14 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 14 Accuracy of protein quantifications in the study of breast cancer cell lines. X-axis: standardized log-fold change, for the
+ comparison described at the beginning of Section 3, from the naïve analysis, which averages feature intensities in each replicate and uses a
+ two-group t-test. Y-axis: standardized log-fold change from the proposed joint modeling of all conditions. Dashed line: a 45° line.
+
+
+models are appropriate for small-size screening experi-                  workflow increases with the dimensionality of the dataset
+ments. The distinction between the scopes of biological                  (i.e., with the number of quantified proteins, and the num-
+replication is a property of all biological experiments, and             ber of features per protein) and with the complexity of the
+the advantage of linear mixed effects models is that they                experiment (e.g., the model-based analysis for the time
+make this distinction explicit, and allow practitioners to               course study of osteosarcoma requires a longer analysis
+make an informed choice. In all cases, the scope of conclu-              time than the factorial study of breast cancer), but even
+sions should be clearly specified prior to collecting the                for large-scale datasets from complex designs each step of
+data, the limits of generalizability should be clearly stated            the workflow can typically be executed within minutes.
+when reporting the results, and the conclusions should be                   The proposed framework, and the software implemen-
+followed by a thorough experimental validation.                          tation, should not be confused with that of the recently
+  Developing linear mixed effects models for experiments                 introduced software SRMstats for protein significance
+with complex designs and making model-based conclu-                      analysis in label-based selected reaction monitoring
+sions presents technical challenges for users with a limited             (SRM) workflows [25]. While also based on the linear
+statistics background. The implementation in MSstats                     mixed effects modeling framework, the class of models
+automates these tasks and circumvents the challenges.                    employed in SRMstats are designed to optimize perfor-
+Table 1 summarizes the proposed analysis workflow,                       mance in datasets specific to the SRM workflow. SRM
+Supplementary Table 2 annotates the steps of the work-                   datasets contain extra information from heavy-labeled
+flow with R-based commands, and Supplementary Infor-                     reference peptides, which facilitates several aspects of an
+mation contains extensive code for implementing the                      analysis, including normalization to remove systematic
+workflow in the two case studies. The analysis time of the               between-run variation, separation of true biological
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                    Page 15 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+ Figure 15 Comparison of strategies for missing data. Effect of the treatment of missing LC-MS peaks on protein significance analysis in the
+ study of breast cancer cell lines, for the subset of 140 proteins where at least one feature is missing entirely in at least one condition. (a) Results
+ of comparing protein abundances between cell line types after six hours of normoxia. (b) Results of comparing protein abundances between cell
+ line types under normoxia, on average over the two exposure times. Each circle shows the number of differentially abundant proteins detected
+ with three treatments of features with peak intensities missing in an entire condition: (1) imputation of the background intensity, (2) assuming
+ no feature interferences, and (3) removing the feature from the dataset. The two comparisons have the same biological interpretation, but (b)
+ doubles the number of biological replicates.
+
+
+variation from non-systematic between-run variation,                          specifically for label-free LC-MS/MS investigations,
+and a more straightforward handling of missing values                         which are characterized by a confounding of variation
+within the linear mixed effects modeling framework. The                       from multiple convoluted sources, heterogeneous sto-
+framework introduced in this work is designed                                 chastic variation, frequent missing data, and greater
+
+Table 1 An overview of the proposed data analysis workflow.
+Steps                     Detailed tasks                                        Comments
+Statement of the          • Specify comparisons of interest                     • Express comparisons as statistical hypotheses
+problem
+                          • Define scope of biological replication              • Restricted scope suitable for screening; expanded scope required for
+                                                                                validation
+Exploratory data          • Detect mis-identified features                      • Remove obvious outliers
+analysis
+                          • Detect features with missing values                 • Choose imputation strategy
+Model-based analysis      • Fit linear mixed model per protein                  • Reduced scope of biological replication = fixed subjects; expanded
+                                                                                scope = random subjects
+                          • Check qq-plots plots for Normality                  • If deviations, conclusions are approximate only
+                          • Check residual plots for equal variance             • If deviations, use iterative least squares
+                          • Test comparisons of interest                        • Adjust p-values per comparison to control FDR
+                          • Quantify protein abundance in conditions or         • Use as input with downstream clustering or classification
+                          samples of interest
+Design follow-up          • Evaluate power and sample size                      • Find minimal sample size for a fold change
+experiments
+                                                                                • Find minimal fold change for a sample size
+Supplementary Table 2 shows MSstats commands for each step.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                       Page 16 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+uncertainty in the conclusions. The implementation in                         This article has been published as part of BMC Bioinformatics Volume 13
+                                                                              Supplement 16, 2012: Statistical mass spectrometry-based proteomics. The
+MSstats is designed to utilize experiments with com-                          full contents of the supplement are available online at http://www.
+plex designs in order to better quantify the sources of                       biomedcentral.com/bmcbioinformatics/supplements/13/S16.
+variation and reduce uncertainty.
+                                                                              Author details
+   The proposed approach has several limitations, most                        1
+                                                                               Department of Statistics, Purdue University, West Lafayette, IN, USA.
+of which are simplifications that reduce the complexity                       2
+                                                                               Department of Biology, Institute of Molecular Systems Biology, ETH Zürich,
+and the analysis time of large-scale datasets. First,                         Switzerland. 3Institute for Systems Biology, Seattle, WA, USA. 4School of
+                                                                              Medicine, Indiana University, Indianapolis, IN, USA. 5Faculty of Science,
+MSstats requires the same treatment of missing peak                           University of Zürich, Switzerland. 6Department of Computer Science, Purdue
+intensities to all proteins with excessive missings. A                        University, West Lafayette, IN, USA.
+user-specified protein-specific treatment, motivated by
+                                                                              Authors’ contributions
+the quality control plots, will likely be implemented in a                    T.C. developed the software, performed the statistical analysis, and wrote the
+future version of the software. Second, MSstats applies                       manuscript. S.T. designed and conducted the study of breast cancer cell
+the same class of models to all proteins in the dataset.                      lines. S.R. designed and conducted the study of subjects with osteosarcoma.
+                                                                              R.A. supervised the experimental aspects of the study of breast cancer cell
+While per-protein refinements, such as removing unne-                         lines. O.V. supervised the statistical aspects of the work and wrote the
+cessary interaction terms, are possible they are often                        manuscript.
+impractical, slow the analysis, require adjustments for
+                                                                              Competing interests
+multiple testing, and may lead to more conservative                           The authors declare that they have no competing interests.
+tests and overfitting. Another potential problem is the
+assumption of Normally distributed random terms.                              Published: 5 November 2012
+Although this assumption is rarely satisfied exactly, in
+                                                                              References
+our experience the deviations from Normality on the                           1. Cox J, Mann M: Quantitative, high-resolution proteomics for data-driven
+log-intensity scale are quite minor, and linear models                            systems biology. Annual Review of Biochemistry 2011, 80:273-299 [http://
+are known to be robust to such small deviations. Resi-                            www.annualreviews.org/doi/abs/10.1146/annurev-biochem-061308-093216].
+                                                                              2. Mallick P, Kuster B: Proteomics: a pragmatic perspective. Nature
+dual plots help diagnose features with major deviations,                          Biotechnology 2010, 28:695-709.
+which can then be manually excluded from the analysis.                        3. Schulze WX, Usadel B: Quantitation in mass-spectrometry-based
+The final limitation of the proposed approach is the                              proteomics. Annual Review of Plant Biology 2010, 61:491-516 [http://www.
+                                                                                  annualreviews.org/doi/abs/10.1146/annurev-arplant-042809-112132].
+assumption that the LC-MS features in the dataset are                         4. Liu H, Sadygov RG, Yates JR: A model for random sampling and
+correctly identified, correctly mapped to protein groups,                         estimation of relative protein abundance in shotgun proteomics.
+and are informative of protein abundance (e.g., are                               Analytical Chemistry 2004, 76(14):4193-4201 [http://pubs.acs.org/doi/abs/
+                                                                                  10.1021/ac0498563].
+within the limits of the dynamic range). An incorrectly                       5. Walther TC, Mann M: Mass spectrometry-based proteomics in cell
+mapped feature, a feature close to the edge of the signal                         biology. The Journal of Cell Biology 2010, 190:491.
+range, or a feature with a profile distorted by a post-                       6. Domon B, Aebersold R: Options and considerations when selecting a
+                                                                                  quantitative proteomics strategy. Nature Biotechnology 2010, 28(7):710-721.
+translational modification can undermine the quality of                       7. Mueller LN, Brusniak M, Mani DR, Aebersold R: An assessment of software
+the results. The quality control plots currently help par-                        solutions for the analysis of mass spectrometry based quantitative
+tially alleviate this issue.                                                      proteomics data. Journal of Proteome Research 2008, 7:51-61.
+                                                                              8. Gstaiger M, Aebersold R: Applying mass spectrometry-based proteomics
+   Overall, the proposed approach balances accuracy and                           to genetics, genomics and network biology. Nature Revews Genetics 2009,
+practicality, and enables the analysis of complex experi-                         10(9):617-627.
+ments in high throughput. Its open-source implementa-                         9. Hanash S, Taguchi A: The grand challenge to decipher the cancer
+                                                                                  proteome. Nature Reviews Cancer 2010, 10(9):652-660.
+tion is friendly to users with a limited statistics and                       10. Nilsson T, Mann M, Aebersold R, Yates JR III, Bairoch A, Bergeron JJM: Mass
+programming background. We hope that the proposed                                 spectrometry in high-throughput proteomics: ready for the big time.
+approach will become a valuable tool for proteomic                                Nature Methods 2010, 7(9):681.
+                                                                              11. Lipshutz RJ, Fodor SPA, Gingeras TR, Lockhart DJ: High density synthetic
+investigations.                                                                   oligonucleotide arrays. Nature Genetics 1999, 21:20-24.
+                                                                              12. Irizarry RA, Hobbs B, Collin F, Beazer-Barclay YD, Antonellis KJ, Scherf U,
+Additional material                                                               Speed TP: Exploration, normalization, and summaries of high density
+                                                                                  oligonucleotide array probe level data. Biostatistics 2003, 4:249-264.
+                                                                              13. Slonim DK, Yanai I: Getting started in gene expression microarray
+ Additional file 1: Supplementary information. Extensive experimental             analysis. PLoS Computational Biology 2009, 5:e10e1000543.
+ and computational details and R code for MSstats are provided in             14. Clough T, Key M, Ott I, Ragg S, Schadow G, Vitek O: Protein quantification
+ Supplementary information.                                                       in label-free LC-MS experiments. Journal of Proteome Research 2009,
+                                                                                  8:5275-5284.
+                                                                              15. Bukhman YV, Dharsee M, Ewing R, Chu P, Topaloglou T, Le Bihan T, Goh T,
+                                                                                  Duewel H, Stewart II, Wisniewski JR, Ng NF: Design and analysis of
+Acknowledgements                                                                  quantitative differential proteomics investigations using LC-MS technology.
+The work was supported by the NSF CAREER grant DBI-1054826 to O.V., by            Journal of Bioinformatics and Computational Biology 2008, 6:107-123.
+grant 5K23RR019540 from the National Institutes of Health (NIH) to S.R. and   16. Daly DS, Anderson KK, Panisko EA, Purvine S, Fang R, Monroe ME, Baker SE:
+by the Indiana University Melvin and Bren Simon Cancer Center ITRAC Pilot         Mixed-effects statistical model for comparative LC-MS proteomics
+Grant Mechanism to S.R.                                                           studies. Journal of Proteome Research 2008, 7:1209-1217.
+Clough et al. BMC Bioinformatics 2012, 13(Suppl 16):S6                                                                                               Page 17 of 17
+http://www.biomedcentral.com/1471-2105/13/S16/S6
+
+
+
+
+17. Dicker L, Lin X, Ivanov AR: Increased power for the analysis of label-free       40. Webb-Robertson B, McCue LA, Waters KM, Matzke MM, Jacobs JM, Metz TO,
+    LC-MS/MS proteomics data by combining spectral counts and peptide                    Varnum SM, Pounds JG: Combined statistical analyses of peptide
+    peak attributes. Molecular & Cellular Proteomics 2010, 9:2704-2718.                  intensities and peptide occurrences improves identification of significant
+18. Karpievitch Y, Stanley J, Taverner T, Huang J, Adkins JN, Ansong C,                  peptides from MS-based proteomics data. Journal of Proteome Research
+    Heffron F, Metz TO, Qian W, Yoon H, Smith RD, Dabney AR: A statistical               2010, 9:5748-5756.
+    framework for protein quantitation in bottom-up MS-based proteomics.             41. Bates D, Maechler M: lme4: Linear mixed-effects models using S4 classes 2010
+    Bioinformatics 2009, 25:2028-2034.                                                   [http://CRAN.R-project.org/package=lme4], [R package version 0.999375-37].
+19. Griffin NM, Yu J, Long F, Oh P, Shore S, Li Y, Koziol JA, Schnitzer JE: Label-   42. Montgomery DC: Design and Analysis of Experiments. 5 edition. New York:
+    free, normalized quantification of complex mass spectrometry data for                John Wiley and Sons; 2000.
+    proteomic analysis. Nature Biotechnology 2010, 28:83-89.                         43. McCulloch CE, Searle SR, Neuhaus JM: Generalized, Linear, and Mixed Models.
+20. R Development Core Team: R: A Language and Environment for Statistical               2 edition. Hoboken, New Jersey: Wiley; 2008.
+    Computing R Foundation for Statistical Computing, Vienna, Austria; 2009          44. Riter LS, Jensen PK, Ballam JM, Urbanczyk-Wochniak E, Clough T, Vitek O,
+    [http://www.R-project.org], [ISBN 3-900051-07-0].                                    Sutton J, Athanas M, Lopez MF, MacIsaac S: Evaluation of label-free
+21. Zhang H, Li XJ, Martin D, Aebersold R: Identification and quantification of          quantitative proteomics in a plant matrix: a case study of the night-to-
+    N-linked glycoproteins using hydrazide chemistry, stable isotope                     day transition in corn leaf. Anal Methods 2011, 3:2733-2739 [http://dx.doi.
+    labeling and mass spectrometry. Nature Biotechnology 2003, 21:660-666.               org/10.1039/C1AY05473B].
+22. Sturm M, Bertsch A, Gröpl C, Hildebrandt A, Hussong R, Lange E, Pfeifer N,
+    Schulz-Trieglaff O, Zerck A, Reinert K, Kohlbacher O: OpenMS - An open-           doi:10.1186/1471-2105-13-S16-S6
+    source software framework for mass spectrometry. BMC Bioinformatics               Cite this article as: Clough et al.: Statistical protein quantification and
+    2008, 9(163):1-11.                                                                significance analysis in label-free LC-MS experiments with complex
+23. Bolstad BM, Irizarry RA, Astrand M, Speed TP: A comparison of                     designs. BMC Bioinformatics 2012 13(Suppl 16):S6.
+    normalization methods for high density oligonucleotide array data
+    based on variance and bias. Bioinformatics 2003, 19(2):185-193.
+24. Higgs RE, Knierman MD, Gelfanova V, Butler JP, Hale JE: Label-free LC-MS
+    method for the identification of biomarkers. Methods in Molecular Biology
+    2008, 428:209-30.
+25. Chang CY, Picotti P, Hüttenhain R, Heinzelmann-Schwarz V, Jovanovic M,
+    Aebersold R, Vitek O: Protein significance analysis in Selected Reaction
+    Monitoring (SRM) measurements. Molecular & Cellular Proteomics 2012,
+    11(4):273-299.
+26. Kreutz C, Timmer J: Systems biology: experimental design. FEBS Journal
+    2009, 276:923-942.
+27. Cleveland WS: Visualizing Data. 1 edition. Summit, New Jersey: Hobart Press;
+    1993.
+28. Kutner MH, Nachtsheim CJ, Netter J, Li W: Applied Linear Models. 5 edition.
+    New York: McGraw-Hill/Irwin; 2005.
+29. Cleveland WS, Devlin SJ, Grosse E: Regression by local fitting: methods,
+    properties, and computational algorithms. Journal of Econometrics 1988,
+    37:87-114 [http://www.sciencedirect.com/science/article/pii/
+    0304407688900772].
+30. Benjamini Y, Hochberg Y: Controlling the false discovery rate:a practical
+    and powerful approach to multiple testing. JRSS(B) 1995, 57:289-300.
+31. Lenth RV: Some practical guidelines for effective sample size
+    determination. The American Statistician 2001, 55:187-193.
+32. Wittes J: Sample size calculations for randomized controlled trials.
+    Epidemiologic Reviews 2002, 24:39-53.
+33. Oberg AL, Vitek O: Statistical design of quantitative mass spectrometry-
+    based proteomic experiments. Journal of Proteome Research 2009,
+    8:2144-2156.
+34. Zhou C, Simpson KL, Lancashire LJ, Walker MJ, Dawson MJ, Unwin RD,
+    Rembielak A, Price P, West C, Dive C, Whetton AD: Statistical
+    considerations of optimal study design for human plasma proteomics
+    and biomarker discovery. Journal of Proteome Research 2012,
+    11(4):2103-2113.
+35. Ning K, Fermin D, Nesvizhskii AI: Comparative analysis of different label-
+    free mass spectrometry based protein abundance estimates and their
+    correlation with RNA-seq gene expression data. Journal of Proteome
+    Research 2012, 11(4):2261-2271.
+36. Higgs RE, Knierman MD, Gelfanova V, Butler JP, Hale JE: Comprehensive                 Submit your next manuscript to BioMed Central
+    label-free method for the relative quantification of proteins from                    and take full advantage of:
+    biological samples. Journal of Proteome Research 2005, 4:1442-1450.
+37. Duda RO, Hart PE, Stork DG: Pattern Classification. 2 edition. Wiley-
+                                                                                          • Convenient online submission
+    Interscience; 2000.
+38. Wang X, Anderson G, Smith RD, Dabney AR: A hybrid approach to protein                 • Thorough peer review
+    differential expression in mass spectrometry-based proteomics.                        • No space constraints or color figure charges
+    Bioinformatics 2012, 28(12):1586-1591 [http://bioinformatics.oxfordjournals.
+    org/content/early/2012/04/19/bioinformatics.bts193.abstract].                         • Immediate publication on acceptance
+39. Tekwe CD, Carroll RJ, Dabney AR: Application of survival analysis                     • Inclusion in PubMed, CAS, Scopus and Google Scholar
+    methodology to the quantitative analysis of LC-MS proteomics data.
+                                                                                          • Research which is freely available for redistribution
+    Bioinformatics 2012, 28(5):1988-2003.
+
+                                                                                          Submit your manuscript at
+                                                                                          www.biomedcentral.com/submit
+

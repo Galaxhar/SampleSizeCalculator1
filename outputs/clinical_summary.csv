@@ -1,0 +1,2 @@
+"sd_post","rho","delta","alpha","target_power","loss","covariates","sd_residual","n_normal_raw","n_normal_per_arm","n_finite_per_arm","residual_df","recruit_per_arm","recruit_total","power_at_finite_n","current_recruit_per_arm","expected_evaluable_per_arm","fixed_evaluable_for_power","power_at_expected_floor","power_no_losses_current","prob_both_reach_n_current","prob_both_reach_n_recommended"
+8.7,0.5,6,0.05,0.8,0.2,2,7.53442101292462,24.7534044622034,25,26,48,33,66,0.803287684460193,30,24,24,0.769745553211831,0.85790787323407,0.0651440143253368,0.443135595248236

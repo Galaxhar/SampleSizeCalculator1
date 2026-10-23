@@ -1,0 +1,29 @@
+Simulacao R: n=24; alternativa; B=20000
+Simulacao R: n=24; nula; B=20000
+Simulacao R: n=25; alternativa; B=20000
+Simulacao R: n=25; nula; B=20000
+Simulacao R: n=26; alternativa; B=20000
+Simulacao R: n=26; nula; B=20000
+Simulacao R: n=27; alternativa; B=20000
+Simulacao R: n=27; nula; B=20000
+Simulacao R: n=28; alternativa; B=20000
+Simulacao R: n=28; nula; B=20000
+Simulacao R: recrutamento=30; perdas MCAR=0.2; alternativa
+Simulacao R: recrutamento=30; perdas MCAR=0.2; nula
+null device 
+          1 
+                                        test result
+     Variancias publicadas: combinacao igual   PASS
+       Variancias publicadas: ponderacao n-1   PASS
+                       Inflacao por retencao   PASS
+ DP residual nao pode ser reduzido novamente   PASS
+             Entrada DP residual equivalente   PASS
+   Sem covariaveis concorda com power.t.test   PASS
+                       Erro tipo I analitico   PASS
+                        Busca inteira minima   PASS
+               Entradas invalidas bloqueadas   PASS
+                 Grade completa 216 cenarios   PASS
+           Poder alvo atingido em toda grade   PASS
+  Retencao esperada suficiente em toda grade   PASS
+      ANCOVA pos equivale a mudanca ajustada   PASS
+Concluido. Leia report.html ou report.md; tabelas e graficos em outputs/.

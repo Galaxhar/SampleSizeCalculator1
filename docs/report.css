@@ -1,0 +1,16 @@
+html { font-family: system-ui, sans-serif; color: #203047; background: #f7f9fc; }
+body { max-width: 1080px; margin: 2rem auto; padding: 2.5rem; background: white; line-height: 1.65; }
+h1, h2, h3 { color: #17496b; line-height: 1.25; }
+h2 { margin-top: 2.5rem; border-bottom: 1px solid #d9e3ec; padding-bottom: .4rem; }
+a { color: #17618a; }
+table { display: block; overflow-x: auto; border-collapse: collapse; font-size: .85rem; margin: 1rem 0 1.5rem; }
+th, td { border: 1px solid #d9e3ec; padding: .45rem .65rem; text-align: left; }
+th { background: #edf4fa; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+img { max-width: 100%; height: auto; }
+pre { overflow-x: auto; background: #f0f4f8; padding: 1rem; border-radius: 4px; }
+code { font-size: .9em; }
+math[display="block"] { overflow-x: auto; padding: 1rem 0; }
+figcaption { color: #526475; font-size: .9rem; }
+@media (max-width: 700px) { body { margin: 0; padding: 1rem; } }
+@media print { body { max-width: none; margin: 0; padding: 0; } table { font-size: .7rem; } h2 { break-after: avoid; } }

@@ -1,0 +1,4 @@
+"group","randomized","analyzed","mean_baseline","sd_baseline","mean_post","sd_post"
+"acupuntura",12,10,19.9,4.1,10.1,5.6
+"sham",12,7,21.6,5.3,24.6,11
+"controle_sem_tratamento",12,9,20.4,4.4,28.2,18

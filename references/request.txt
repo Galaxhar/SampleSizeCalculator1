@@ -1,0 +1,121 @@
+Desenvolva um projeto reproduzível em R para o cálculo amostral do ensaio clínico descrito nos arquivos fornecidos. O objetivo é levar à consultoria estatística o código executado, os resultados e uma justificativa auditável de cada escolha.
+
+Trabalhe como desenvolvedor de análise estatística: confira as fontes, implemente os cálculos, execute quando houver R disponível e documente as limitações. Não considere as premissas abaixo automaticamente validadas.
+
+**1. Leia os materiais antes de calcular**
+
+Leia o projeto completo, Freire et al. (2007), Clough et al. (2012) e os demais arquivos disponíveis.
+
+O resumo inicial do desenho é:
+- Ensaio randomizado, dois grupos paralelos, alocação 1:1: eletroacupuntura versus sham.
+- Participantes com apneia obstrutiva do sono leve a moderada.
+- Avaliações basal, ao término da intervenção na semana 4 e seguimento na semana 16.
+- Desfecho primário: IAH na semana 4, comparado entre grupos por ANCOVA com ajuste pelo IAH basal e pelas demais covariáveis explicitamente previstas no projeto.
+- Avaliações exploratórias: proteômica plasmática, proteômica salivar e peptidômica salivar.
+
+Confirme essas informações no documento. Identifique divergências que afetem o cálculo. Resolva escolhas técnicas rotineiras com justificativa; solicite esclarecimento apenas quando uma decisão científica indispensável não puder ser estabelecida.
+
+**2. Audite a origem dos parâmetros**
+
+O planejamento atual considera:
+- DP do IAH pós-intervenção: 8,7 eventos/h.
+- Correlação basal–pós: 0,5.
+- Diferença entre grupos: 6 eventos/h.
+- Significância bilateral: 5%.
+- Poder: 80%.
+- Perdas: 20%.
+- Aproximadamente 25 avaliáveis por grupo, com proposta de recrutamento de 30 por grupo.
+
+Crie uma tabela classificando cada parâmetro como dado publicado, estimativa derivada, hipótese de planejamento ou decisão científica pendente. Registre artigo, tabela/página, dados de entrada e procedimento de derivação.
+
+Verifique especialmente:
+- Se o DP de 8,7 pode ser reconstruído a partir dos DPs pós-tratamento de 5,6 e 11,0 reportados por Freire.
+- A diferença entre combinar variâncias com pesos iguais e usar o DP combinado ponderado pelos números efetivamente analisados.
+- Se existe informação suficiente para estimar a correlação basal–pós.
+- A distinção entre DP pós-tratamento, DP da mudança e DP residual da ANCOVA.
+- A justificativa da diferença de 6 eventos/h. Não a declare diferença mínima clinicamente importante validada sem evidência específica.
+- A compensação de perdas por divisão pela proporção esperada de retenção, com arredondamento para cima.
+
+Não atribua aos artigos parâmetros que eles não reportam. Não estime correlação apenas a partir de médias e DPs marginais. Diferencie poder estatístico de proporção esperada de respondedores.
+
+**3. Implemente o cálculo clínico**
+
+Implemente o dimensionamento para a comparação entre grupos por ANCOVA, coerente com o modelo principal do projeto.
+
+Apresente:
+- Fórmula aproximada e suas hipóteses.
+- Procedimento com consideração de amostra finita, quando aplicável.
+- Número de participantes avaliáveis por grupo.
+- Número a recrutar por grupo e total, após perdas.
+- Poder estimado para o recrutamento atualmente proposto de 30 participantes por grupo.
+
+Ao usar a redução de variância por 1 − correlação², explicite as condições de aplicação. Não aplique essa redução novamente se o parâmetro de entrada já for um DP residual.
+
+Mantenha explícito o número de covariáveis e o tratamento dos fatores de estratificação. Não acrescente interações ou ajustes sem justificativa.
+
+**4. Faça análise de sensibilidade**
+
+Use como cenário central as premissas atuais, identificadas como provisórias.
+
+Construa cenários com:
+- DP pós-intervenção de 8,7; 10; e 12 eventos/h.
+- Correlações basal–pós de 0; 0,3; 0,5; e 0,7.
+- Diferenças entre grupos de 4; 5; e 6 eventos/h.
+- Poder de 80% e 90%.
+- Perdas de 10%, 20% e 30%.
+- Alfa bilateral de 5%.
+
+Esses valores são cenários de sensibilidade, não estimativas extraídas dos artigos.
+
+Exporte a tabela completa e apresente um resumo legível, com gráficos mostrando os parâmetros que mais influenciam o tamanho amostral. Evite repetir simulações extensas para toda a grade quando o cálculo analítico for suficiente.
+
+**5. Verifique o procedimento por simulação em R**
+
+Simule o desenho de dois grupos e ajuste o mesmo modelo previsto para a análise principal.
+
+Para o cenário central e tamanhos próximos ao recomendado:
+- Use semente fixa e pelo menos 10.000 simulações por cenário principal.
+- Documente o processo de geração dos dados, as distribuições, a correlação dentro dos grupos e os componentes de variância.
+- Explique como as covariáveis foram representadas.
+- Estime poder e incerteza de Monte Carlo.
+- Verifique também o erro tipo I sob diferença nula.
+- Compare os resultados simulados com o cálculo analítico e investigue divergências relevantes.
+
+Não apresente simulação como validação das premissas clínicas. Diferencie retenção esperada de garantia de obter determinado número de avaliáveis. Se simular perdas, documente seu mecanismo e o tratamento dos dados ausentes.
+
+**6. Trate as análises ômicas separadamente**
+
+Verifique como Clough et al. contribui para o planejamento das três avaliações ômicas.
+
+Não transfira para proteínas ou peptídeos o DP ou a correlação do IAH. Não use contagem de moléculas, injeções ou coletas como número de participantes independentes. Diferencie peptídeos usados para quantificar proteínas de peptídeos endógenos do peptidoma.
+
+Se houver dados laboratoriais adequados:
+- Examine abundâncias individuais, normalização, transformação, pareamento, lotes, replicatas técnicas e valores ausentes.
+- Estime os componentes de variância que os dados permitirem.
+- Planeje o contraste entre mudanças dos grupos, preservando o pareamento.
+- Avalie tamanho amostral ou efeitos detectáveis sob escolhas explícitas de alteração de abundância, poder e FDR.
+- Verifique se a ferramenta escolhida suporta o desenho e o contraste pretendidos; não presuma que uma função pronta resolve o desenho completo.
+
+Se faltarem dados:
+- Não forneça um tamanho amostral ômico definitivo.
+- Prepare um modelo de planilha e um dicionário dos dados necessários.
+- Deixe o módulo de planejamento preparado para receber esses dados.
+- Se incluir exemplos com dados sintéticos, identifique-os claramente como demonstrações, sem apresentá-los como estimativas para este projeto.
+
+Diferencie FDR de identificação de moléculas de FDR dos testes de abundância diferencial. Explique por que dimensionar o IAH não assegura poder de 80% para todas as análises exploratórias.
+
+**7. Entregue arquivos utilizáveis**
+
+Organize a pasta com:
+- README com instruções para executar no RStudio.
+- Scripts R separados para parâmetros, cálculo clínico, sensibilidade, simulação e planejamento ômico.
+- Um script principal que execute o fluxo.
+- Tabelas CSV e gráficos.
+- Relatório em português, preferencialmente Quarto, com fórmulas, fontes, resultados, hipóteses, limitações e questões para o consultor.
+- Registro de versões do R e dos pacotes.
+
+Centralize os parâmetros para que possam ser alterados sem editar várias partes do código. Use caminhos relativos e dependências justificadas.
+
+Execute os scripts se R estiver disponível. Se não estiver, informe exatamente o que não foi executado e forneça instruções para execução local; não substitua silenciosamente os cálculos por outra linguagem nem declare resultados como verificados.
+
+Finalize com uma síntese curta: recomendação clínica condicionada às premissas, principais resultados de sensibilidade, situação do planejamento ômico e decisões que o consultor precisa revisar.

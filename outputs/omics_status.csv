@@ -1,0 +1,4 @@
+"assay","unidade_inferencial","dados_individuais_disponiveis","n_definitivo","status"
+"plasma_proteomics","participante independente com medidas pareadas",FALSE,,"Pendente: abundancias individuais, QC, variancias e escolhas cientificas"
+"saliva_proteomics","participante independente com medidas pareadas",FALSE,,"Pendente: abundancias individuais, QC, variancias e escolhas cientificas"
+"saliva_peptidomics","participante independente com medidas pareadas",FALSE,,"Pendente: abundancias individuais, QC, variancias e escolhas cientificas"

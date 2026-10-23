@@ -1,0 +1,1 @@
+participant_id,sample_id,assay,visit,collection_datetime,fasting_hours,salivary_flow_ml_min,minutes_until_processing,storage_temperature_c,freeze_thaw_cycles,prep_batch,ms_batch,injection_id,injection_order,sample_type,qc_reason
