@@ -1,0 +1,40 @@
+{
+  "pdf_sha256": "fcf76e8ac5492a80eea46cb8606492d0fc14c7ea0309b0d79da3f9b97e4b6c4d",
+  "page_zero_based": 5,
+  "printed_page": 48,
+  "figure": 3,
+  "pymupdf_version": "1.26.6",
+  "method": "direct extraction of full paired line endpoints; linear axis calibration endpoints; Pearson correlation invariant to common affine axis calibration",
+  "group_specs": [
+    [
+      "acupuntura",
+      2,
+      135.24899,
+      226.134,
+      184.92999,
+      84.24701,
+      35,
+      10
+    ],
+    [
+      "controle",
+      24,
+      135.24899,
+      226.134,
+      318.60898,
+      217.92596,
+      70,
+      9
+    ],
+    [
+      "sham",
+      45,
+      136.57201,
+      229.78101,
+      457.26999,
+      353.659,
+      45,
+      7
+    ]
+  ]
+}

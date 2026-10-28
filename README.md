@@ -4,6 +4,11 @@ Projeto reproduzível em **R**, preparado para consultoria estatística. Os par�
 clínicos são provisórios. Leia [o relatório](report.html), sua [fonte Quarto](report.qmd)
 ou a [versão Markdown](report.md) e a [auditoria das fontes](docs/source_audit.md).
 
+Revisão de 28/10/2026: [projeto Word com a seção de randomização em amarelo](docs/projeto_randomizacao_revisao_parcial.docx)
+e [nota sobre a correlação e as pendências](docs/revisao_metodologica_pendente.md).
+**O Word é uma revisão parcial:** o cálculo amostral original ainda aguarda
+substituição após resolver a fundamentação da correlação. Não é a versão final para o CEP.
+
 ## Executar no RStudio
 
 1. Instale R (verificado com **4.5.0**) e RStudio e extraia a pasta inteira.
