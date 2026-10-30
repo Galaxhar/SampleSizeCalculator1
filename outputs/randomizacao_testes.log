@@ -1,0 +1,92 @@
+                                                                         test
+                                    Mesmo seed sintetico reproduz a sequencia
+            Quatro estratos e capacidade para toda a meta em qualquer estrato
+                   Cada bloco completo tem alocacao 1:1 e tamanho predefinido
+                                  Inicializar novamente nao substitui o plano
+                                          Inicializar nao aloca participantes
+                      Impede guardar sequencia real dentro do repositorio Git
+                                               Rejeita tamanhos invalidos 4_4
+                                               Rejeita tamanhos invalidos 5_8
+                                               Rejeita tamanhos invalidos 2_6
+                                                 Rejeita tamanhos invalidos 4
+                                              Rejeita tamanhos invalidos 4_NA
+                  Confirmacoes basais obrigatorias antes da primeira alocacao
+                                                        Rejeita ID invalido 1
+                                                         Rejeita ID invalido
+                                                 Rejeita ID invalido =FORMULA
+                                                 Rejeita ID invalido @FORMULA
+                                               Rejeita ID invalido ../arquivo
+                                                    Rejeita ID invalido P 001
+                                 Estrato desconhecido nao consome uma posicao
+                                  ID normalizado e zeros iniciais preservados
+                             Cada estrato consome sua propria proxima posicao
+                      Repeticao do ID devolve o mesmo recibo sem novo sorteio
+                                      ID ja alocado nao pode mudar de estrato
+                                    Recarregar o script preserva as alocacoes
+               Novo processo R consegue ler e continuar sem reiniciar a lista
+                                 Consulta desconhecida nao aloca participante
+           Exportacao Excel contem apenas alocacoes realizadas e preserva IDs
+                  Edicao no CSV nao interfere na lista nem no proximo sorteio
+ Exportacao restrita reproduz a sequencia e nao sobrescreve arquivo existente
+                                Trava existente impede escrita e e preservada
+                   Falha antes do commit nao consome posicao e libera a trava
+                Retomada apos falha anterior ao commit usa a primeira posicao
+                    Falha de exportacao depois do commit nao perde a alocacao
+               Repetir depois de falha de exportacao nao consome nova posicao
+                          Exportacao pode ser refeita apos falha sem realocar
+   Estado mais recente corrompido bloqueia sem retorno silencioso ao anterior
+                                       Lacuna no historico bloqueia alocacoes
+                        Alteracao retroativa em registro anterior e detectada
+                                    Configuracao nao pode mudar entre estados
+                Permite chegar a 66 sem impor cota artificial de 33 por grupo
+                 O participante 67 e bloqueado sem modificar os 66 anteriores
+  Consulta/repeticao de participante existente funciona apos atingir o limite
+                    Inicializacao automatica preserva o estado RNG do usuario
+                 Semente privada automatica e registrada sem alocar pacientes
+ result
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+   PASS
+
+44testes de randomizacao aprovados. Registros temporarios removidos.

@@ -11,6 +11,11 @@ A meta confirmada é **66 participantes, meta de 33 por braço**, com previsão 
 20% de perdas. A randomização usa R e guarda/liberação independente em Excel.
 A revisão parcial de 28/10 foi mantida apenas como histórico.
 
+Para liberar a alocação por identificador e estrato, use o arquivo único
+[randomizacao.R](randomizacao.R) e o [guia de operação](docs/como_usar_randomizacao.md).
+A lista real é criada uma única vez pelo responsável independente, numa pasta
+privada fora do Git; nenhum participante real foi alocado neste repositório.
+
 ## Executar no RStudio
 
 1. Instale R (verificado com **4.5.0**) e RStudio e extraia a pasta inteira.

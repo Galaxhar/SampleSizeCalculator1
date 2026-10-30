@@ -5,3 +5,9 @@
 dist/
 .quarto/
 *_files/
+# Dados operacionais e sequencias de randomizacao nunca pertencem ao Git.
+AOS_RANDOMIZACAO_PRIVADA/
+estado_*.rds
+alocacoes_realizadas.csv
+SEQUENCIA_FUTURA_RESTRITA.csv
+.trava_alocacao/
