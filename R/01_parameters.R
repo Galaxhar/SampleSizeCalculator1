@@ -1,7 +1,7 @@
-# Premissas PROVISORIAS: editar somente este arquivo para novos cenarios.
+# Premissas de planejamento, confirmadas em 30/10/2026; incerteza clinica permanece.
 parameters <- list(
   sd_post = 8.7, rho = 0.5, delta = 6, alpha = 0.05,
-  power = 0.80, loss = 0.20, recruited_per_arm = 30L,
+  power = 0.80, loss = 0.20, recruited_per_arm = 33L,
   covariates = 2L, # IAH basal + sexo binario; intercepto e grupo nao incluidos
   model = "iah_week4 ~ group + iah_baseline + sex",
   seed = 20261022L, nsim = 20000L,

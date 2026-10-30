@@ -175,7 +175,7 @@ simulate_clinical <- function(params, sample_sizes) {
   output
 }
 
-simulate_recruitment_mcar <- function(params, recruited_per_arm = 30L) {
+simulate_recruitment_mcar <- function(params, recruited_per_arm = params$recruited_per_arm) {
   results <- lapply(c(TRUE, FALSE), function(is_alternative) {
     message("Simulacao R: recrutamento=", recruited_per_arm,
             "; perdas MCAR=", params$loss, "; ",

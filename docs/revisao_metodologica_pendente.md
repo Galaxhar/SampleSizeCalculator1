@@ -1,5 +1,10 @@
 # Revisão parcial do protocolo — 28/10/2026
 
+**Registro histórico, superado em 30/10/2026.** O acesso externo foi restabelecido;
+consulte a [fundamentação atualizada](fundamentacao_20261030.md) e o
+[projeto com cálculo e randomização revisados](projeto_revisado_calculo_randomizacao.docx).
+As pendências e o bloqueio descritos abaixo retratam a situação de 28/10.
+
 **O arquivo `projeto_randomizacao_revisao_parcial.docx` é uma revisão parcial para discussão, não uma versão final para submissão ao CEP.** Substitui a descrição anterior de randomização por uma seção após o delineamento e antes de “População do estudo”. O título, os dois parágrafos e as duas referências acrescentadas estão destacados em amarelo. O original está preservado.
 
 O cálculo amostral do DOCX original ainda precisa ser substituído: suas menções a 60 participantes não incorporam a correção já demonstrada no projeto R. No cenário com DP 8,7, correlação 0,5, diferença de 6 eventos/h, alfa bilateral 5%, poder 80% e perdas 20%, o cálculo R indica 26 avaliáveis e meta de 33 recrutados por braço, 66 no total. A correlação permanece uma hipótese e sua fundamentação bibliográfica está pendente. Não alterar esse parâmetro silenciosamente nem apresentar 66 como resultado independente dessa hipótese.

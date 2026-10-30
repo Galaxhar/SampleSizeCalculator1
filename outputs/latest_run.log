@@ -1,4 +1,16 @@
-Reutilizando simulacoes executadas com os mesmos parametros e codigo (MD5 conferido).
+Fontconfig error: No writable cache directories
+Simulacao R: n=24; alternativa; B=20000
+Simulacao R: n=24; nula; B=20000
+Simulacao R: n=25; alternativa; B=20000
+Simulacao R: n=25; nula; B=20000
+Simulacao R: n=26; alternativa; B=20000
+Simulacao R: n=26; nula; B=20000
+Simulacao R: n=27; alternativa; B=20000
+Simulacao R: n=27; nula; B=20000
+Simulacao R: n=28; alternativa; B=20000
+Simulacao R: n=28; nula; B=20000
+Simulacao R: recrutamento=33; perdas MCAR=0.2; alternativa
+Simulacao R: recrutamento=33; perdas MCAR=0.2; nula
 null device 
           1 
                                                     test result

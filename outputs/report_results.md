@@ -1,6 +1,6 @@
 ## Resultados executados em R
 
-Execução: R version 4.5.0 (2025-04-11). Premissas centrais provisórias: DP pós 8.7, correlação 0.5, diferença 6.0 eventos/h; alfa bilateral 5%, poder 80%, perdas 20%; 2 covariáveis.
+Execução: R version 4.5.0 (2025-04-11). Premissas centrais de planejamento: DP pós 8.7, correlação 0.5, diferença 6.0 eventos/h; alfa bilateral 5%, poder 80%, perdas 20%; 2 covariáveis.
 
 **Dimensionamento condicional: 26 avaliáveis por grupo; 33 recrutados por grupo (66 no total).** A aproximação normal retorna 24.7534, arredondada para 25 avaliáveis. O cálculo com t e 48 graus de liberdade retorna 26, com poder 80.33% sob balanceamento das covariáveis.
 
@@ -16,11 +16,11 @@ Essas alternativas são auditoria da derivação; selecionar o menor DP apenas p
 
 ### Proposta atual e perdas
 
-Recrutar 30/grupo com retenção esperada de 80% produz 24.0 avaliáveis/grupo em média. Fixando 24 avaliáveis, o poder analítico é 76.97%; com todos os 30 avaliáveis e nenhuma perda, 85.79%.
+Recrutar 33/grupo com retenção esperada de 80% produz 26.4 avaliáveis/grupo em média. Fixando 26 avaliáveis, o poder analítico é 80.33%; com todos os 33 avaliáveis e nenhuma perda, 88.96%.
 
-Na simulação de perdas independentes MCAR, com 30 recrutados/grupo, o poder foi 76.24% (IC95% Monte Carlo 75.65–76.82%). Essa simulação faz análise de casos completos para verificar o método; não implementa a estratégia definitiva de intenção de tratar/imputação.
+Na simulação de perdas independentes MCAR, com 33 recrutados/grupo, o poder foi 80.20% (IC95% Monte Carlo 79.65–80.75%). Essa simulação faz análise de casos completos para verificar o método; não implementa a estratégia definitiva de intenção de tratar/imputação.
 
-Sob retenções binomiais independentes, a probabilidade de ambos os grupos alcançarem pelo menos 26 avaliáveis é 6.51% com 30 recrutados/grupo e 44.31% com 33/grupo. Portanto, dividir pela retenção não garante atingir o alvo. Esses valores não são probabilidades de sucesso do teste.
+Sob retenções binomiais independentes, a probabilidade de ambos os grupos alcançarem pelo menos 26 avaliáveis é 44.31% com 33 recrutados/grupo. Dividir pela retenção não garante atingir o alvo; essa probabilidade não é o poder do teste. A meta de 33/grupo também não garante equilíbrio exato ao encerrar blocos estratificados incompletos.
 
 ### Sensibilidade
 

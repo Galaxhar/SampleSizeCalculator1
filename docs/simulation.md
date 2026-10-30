@@ -101,10 +101,10 @@ residual: a verificação condicional usa o `sigma_e` efetivamente gerado.
 
 ## Perdas e intenção de tratar
 
-O módulo adicional começa com 30 randomizados por grupo e remove cada
+O módulo adicional começa com a meta de 33 randomizados por grupo e remove cada
 resultado da semana 4 independentemente, com probabilidade `params$loss`.
 Esse mecanismo é MCAR: não depende de grupo, resultado, IAH basal ou sexo.
-Assim, com perdas de 20%, 24 avaliáveis por grupo são uma **esperança**, não
+Assim, com perdas de 20%, 26,4 avaliáveis por grupo são uma **esperança**, não
 uma garantia; os números reais variam e os grupos podem ficar desequilibrados.
 
 O ajuste nesta verificação usa apenas casos completos. Isso não define nem
@@ -120,7 +120,7 @@ réplicas, pois não produziram evidência para rejeitar a hipótese.
 ```r
 source("R/04_simulation.R")
 sim <- simulate_clinical(params, sample_sizes = c(24, 25, 26, 27))
-loss_sim <- simulate_recruitment_mcar(params, recruited_per_arm = 30)
+loss_sim <- simulate_recruitment_mcar(params, recruited_per_arm = 33)
 ```
 
 Campos necessários de `params`: `sd_post`, `rho`, `delta`, `alpha`, `loss`,

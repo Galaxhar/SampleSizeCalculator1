@@ -59,8 +59,8 @@ interpretado</a></li>
 </ul></li>
 <li><a href="#desenho-confirmado-no-projeto" id="toc-desenho-confirmado-no-projeto">Desenho confirmado no projeto</a>
 <ul>
-<li><a href="#divergências-que-exigem-harmonização-documental" id="toc-divergências-que-exigem-harmonização-documental">Divergências
-que exigem harmonização documental</a></li>
+<li><a href="#auditoria-das-divergências-do-documento-original" id="toc-auditoria-das-divergências-do-documento-original">Auditoria das
+divergências do documento original</a></li>
 </ul></li>
 <li><a href="#auditoria-da-origem-dos-parâmetros" id="toc-auditoria-da-origem-dos-parâmetros">Auditoria da origem dos
 parâmetros</a>
@@ -108,6 +108,12 @@ ensaio descrito no projeto de Nathalia Rabelo Buzalaf Zanardini de Lara.
 Os materiais fornecidos foram o projeto em DOCX, Freire et al. (2007),
 Clough et al. (2012) e o pedido de análise. Não foram fornecidos dados
 individuais clínicos nem abundâncias laboratoriais individuais.</p>
+<p>Atualização de 30/10/2026: a meta de <strong>66 participantes, com
+meta de 33 por braço e previsão de 20% de perdas</strong>, foi
+confirmada. A pesquisa externa e as justificativas estão em <a href="docs/fundamentacao_20261030.md">fundamentação atualizada</a>. O <a href="docs/projeto_revisado_calculo_randomizacao.docx">projeto Word
+revisado</a> incorpora o cálculo e o procedimento de randomização em
+R/Excel. A auditoria dos parágrafos Pxxxx abaixo continua se referindo
+ao documento original, preservado em <code>references/</code>.</p>
 <p>Os resultados clínicos são <strong>condicionais às premissas de
 planejamento</strong>. Executar corretamente uma fórmula ou reproduzi-la
 por simulação não demonstra que o DP, a correlação ou a diferença-alvo
@@ -120,8 +126,8 @@ execução no RStudio. Os parâmetros editáveis estão centralizados em <a href
 na seção seguinte são produzidos pelo fluxo R; o restante do relatório
 documenta sua interpretação e as fontes.</p>
 <h2 id="resultados-executados-em-r">Resultados executados em R</h2>
-<p>Execução: R version 4.5.0 (2025-04-11). Premissas centrais
-provisórias: DP pós 8.7, correlação 0.5, diferença 6.0 eventos/h; alfa
+<p>Execução: R version 4.5.0 (2025-04-11). Premissas centrais de
+planejamento: DP pós 8.7, correlação 0.5, diferença 6.0 eventos/h; alfa
 bilateral 5%, poder 80%, perdas 20%; 2 covariáveis.</p>
 <p><strong>Dimensionamento condicional: 26 avaliáveis por grupo; 33
 recrutados por grupo (66 no total).</strong> A aproximação normal
@@ -163,18 +169,19 @@ combinação dos DPs históricos produzem:</p>
 <p>Essas alternativas são auditoria da derivação; selecionar o menor DP
 apenas para reduzir recrutamento não é justificável.</p>
 <h3 id="proposta-atual-e-perdas">Proposta atual e perdas</h3>
-<p>Recrutar 30/grupo com retenção esperada de 80% produz 24.0
-avaliáveis/grupo em média. Fixando 24 avaliáveis, o poder analítico é
-76.97%; com todos os 30 avaliáveis e nenhuma perda, 85.79%.</p>
-<p>Na simulação de perdas independentes MCAR, com 30 recrutados/grupo, o
-poder foi 76.24% (IC95% Monte Carlo 75.65–76.82%). Essa simulação faz
+<p>Recrutar 33/grupo com retenção esperada de 80% produz 26.4
+avaliáveis/grupo em média. Fixando 26 avaliáveis, o poder analítico é
+80.33%; com todos os 33 avaliáveis e nenhuma perda, 88.96%.</p>
+<p>Na simulação de perdas independentes MCAR, com 33 recrutados/grupo, o
+poder foi 80.20% (IC95% Monte Carlo 79.65–80.75%). Essa simulação faz
 análise de casos completos para verificar o método; não implementa a
 estratégia definitiva de intenção de tratar/imputação.</p>
 <p>Sob retenções binomiais independentes, a probabilidade de ambos os
-grupos alcançarem pelo menos 26 avaliáveis é 6.51% com 30
-recrutados/grupo e 44.31% com 33/grupo. Portanto, dividir pela retenção
-não garante atingir o alvo. Esses valores não são probabilidades de
-sucesso do teste.</p>
+grupos alcançarem pelo menos 26 avaliáveis é 44.31% com 33
+recrutados/grupo. Dividir pela retenção não garante atingir o alvo; essa
+probabilidade não é o poder do teste. A meta de 33/grupo também não
+garante equilíbrio exato ao encerrar blocos estratificados
+incompletos.</p>
 <h3 id="sensibilidade">Sensibilidade</h3>
 <p>A grade contém 216 cenários, com recrutamento total de 40 a 546. Os
 extremos combinam várias premissas; não são intervalo de confiança. A
@@ -487,8 +494,8 @@ protocolo; não se acrescenta outro indicador de gravidade. Não foram
 introduzidas interações, idade ou IMC no modelo primário. Se a
 codificação final de sexo exigir mais de uma coluna, é necessário
 atualizar o número de parâmetros e o dimensionamento.</p>
-<h3 id="divergências-que-exigem-harmonização-documental">Divergências
-que exigem harmonização documental</h3>
+<h3 id="auditoria-das-divergências-do-documento-original">Auditoria das
+divergências do documento original</h3>
 <p>O objetivo e P0167 descrevem diferença entre grupos na mudança do
 IAH; P0080 e P0172 especificam IAH pós-intervenção ajustado pelo basal.
 Adotou-se P0172, a especificação mais explícita do modelo. Ajustar uma
@@ -505,10 +512,11 @@ mudanças não é equivalente e requer outra variância.</p>
 enquanto P0172 inclui sexo. Este projeto inclui o custo em graus de
 liberdade de ambas as covariáveis, mas não presume benefício prognóstico
 adicional do sexo.</p>
-<p>A proposta de 25 avaliáveis por grupo, 20% de perdas e 30 recrutados
-por grupo em P0080 é aritmeticamente inconsistente. Para compensar perda
-de 20% dos recrutados, a operação correta é divisão por 0,80 e
-arredondamento para cima:
+<p>A proposta original de 25 avaliáveis por grupo, 20% de perdas e 30
+recrutados por grupo em P0080 era aritmeticamente inconsistente. O Word
+revisado usa 26 avaliáveis e meta de 33 recrutados por braço. Para
+compensar perda de 20% dos recrutados, a operação correta é divisão por
+0,80 e arredondamento para cima:
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⌈</mo><mn>25</mn><mi>/</mi><mn>0</mn><mo>,</mo><mn>80</mn><mo stretchy="false" form="postfix">⌉</mo><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">\lceil25/0{,}80\rceil=32</annotation></semantics></math>.
 Trinta recrutados correspondem a 24 avaliáveis
 <strong>esperados</strong> por grupo. A recomendação finita deve usar o
@@ -602,20 +610,33 @@ covariância ou DP da mudança suficientes para reconstruir a correlação.
 Médias e DPs marginais não identificam
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>.
 A Figura 3, p.48, mostra trajetórias, mas não uma tabela de pares
-exatos; não foi realizada digitização. Os testes descritos na p.46 são
-Wilcoxon pareado e Kruskal–Wallis, e seus p-valores não foram
-convertidos em uma correlação de Pearson. Portanto,
+exatos. Na revisão suplementar, a extração dos segmentos vetoriais
+permitiu uma reconstrução exploratória (r dentro dos braços acupuntura e
+sham combinado ≈0,453), com divergências em relação aos DPs tabulados.
+Os testes descritos na p.46 são Wilcoxon pareado e Kruskal–Wallis, e
+seus p-valores não foram convertidos em uma correlação de Pearson.
+Portanto,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\rho=0{,}5</annotation></semantics></math>
 permanece <strong>hipótese de planejamento</strong>, não estimativa
-publicada.</p>
+publicada. A busca externa encontrou apoio indireto em Puhan et
+al. (2006): r combinado dentro dos braços ≈0,559, derivado dos DPs
+basal, final e da mudança em 25 participantes. O estudo avaliou outro
+tratamento e seguimento de quatro meses; não confirma a correlação para
+eletroacupuntura em quatro semanas. A derivação e seus limites constam
+da <a href="docs/fundamentacao_20261030.md">fundamentação
+atualizada</a>.</p>
 <p>A diferença-alvo de 6 eventos/h foi especificada no projeto, mas os
 materiais fornecidos não estabelecem sua derivação nem a validam como
 diferença mínima clinicamente importante. A tabela de Freire implica
 diferença pós não ajustada de −14,5 eventos/h e diferença entre mudanças
 não ajustadas de −12,8 eventos/h. Essas são descrições do piloto, não
-estimativas da ANCOVA do novo ensaio nem validação do alvo 6. Sua
-relevância e plausibilidade são <strong>decisões científicas
-pendentes</strong> da revisão clínica/estatística.</p>
+estimativas da ANCOVA do novo ensaio nem validação do alvo 6. Esse valor
+foi mantido como <strong>estimativa clínica prévia</strong>. Wang et
+al. (2020) encontrou diferença média de −6,18 eventos/h, mas com
+evidência baixa e I²=94%; Silva et al. (2020) não encontrou diferença
+entre acupuntura e sham em hipertensos com AOS leve/moderada. Essas
+fontes contextualizam a escolha e sua incerteza; não validam 6 como
+diferença mínima clinicamente importante.</p>
 <p>Alfa bilateral de 5%, poder de 80% e perdas de 20% são escolhas de
 planejamento do protocolo. O poder é a probabilidade de rejeitar a
 hipótese nula no procedimento especificado quando a diferença-alvo é
@@ -727,10 +748,11 @@ probabilidade de ambos alcançarem o alvo sob essa hipótese
 simplificadora. Uma meta de garantia de retenção exigiria escolher
 explicitamente a probabilidade desejada e possivelmente recrutar
 mais.</p>
-<p>Para 30 recrutados por grupo, são apresentados separadamente o poder
-com 30 avaliáveis sem perdas, a aproximação com 24 avaliáveis fixos sob
-retenção esperada de 80%, e a simulação com números aleatórios de casos
-completos. Essas quantidades respondem a perguntas diferentes.</p>
+<p>Para a meta de 33 recrutados por grupo, são apresentados
+separadamente o poder com 33 avaliáveis sem perdas, a aproximação com 26
+avaliáveis fixos sob retenção esperada de 80%, e a simulação com números
+aleatórios de casos completos. Essas quantidades respondem a perguntas
+diferentes.</p>
 <h2 id="sensibilidade-1">Sensibilidade</h2>
 <p>A grade completa cruza DP pós de 8,7, 10 e 12; correlação de 0, 0,3,
 0,5 e 0,7; diferença de 4, 5 e 6; poder de 80% e 90%; e perda de 10%,
@@ -917,10 +939,10 @@ específica.</li>
 <li>Rever a plausibilidade de DP 8,7 e correlação 0,5; considerar dados
 piloto, estimativas externas adequadas ou atualização amostral cega
 previamente planejada, se cientificamente apropriada.</li>
-<li>Escolher o recrutamento considerando a fronteira de poder, a
-incerteza de retenção, a viabilidade e a eventual margem adicional;
-documentar o nível de garantia desejado em vez de confundi-lo com
-retenção média.</li>
+<li>Acompanhar a retenção sob a meta escolhida de 66 participantes, com
+a incerteza explicitada; documentar eventuais revisões prévias do
+protocolo sem confundir retenção média com garantia de atingir o alvo
+por braço.</li>
 <li>Harmonizar a redação mudança/ANCOVA, confirmar codificação de sexo e
 manter a gravidade representada como previsto; verificar adequação
 linear, homocedasticidade, assimetria e efeito piso do IAH.</li>
@@ -950,10 +972,12 @@ protein quantification and significance analysis in label-free LC-MS
 experiments with complex designs. <em>BMC Bioinformatics</em>.
 2012;13(Suppl 16):S6. DOI: <a href="https://doi.org/10.1186/1471-2105-13-S16-S6">10.1186/1471-2105-13-S16-S6</a>.</li>
 </ul>
-<p>Os demais trabalhos citados na bibliografia do projeto não foram
-fornecidos integralmente e não são usados aqui como se seus resultados
-tivessem sido auditados. A derivação do cálculo t está explicitada acima
-e implementada com as funções <code>qt()</code> e <code>pt()</code> de
+<p>As referências externas adicionais consultadas em 30/10/2026, seus
+PMIDs, trechos/tabelas usados e limites de acesso estão documentados em
+<a href="docs/fundamentacao_20261030.md">fundamentação atualizada</a>.
+Os demais trabalhos da bibliografia original não foram auditados
+integralmente. A derivação do cálculo t está explicitada acima e
+implementada com as funções <code>qt()</code> e <code>pt()</code> de
 <code>stats</code>, sem atribuí-la aos artigos de Freire ou Clough.</p>
 </body>
 </html>

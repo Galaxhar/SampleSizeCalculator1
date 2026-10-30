@@ -1,0 +1,39 @@
+    scenario sd_post       rho delta loss n_evaluable_per_arm n_recruit_per_arm
+1    central     8.7 0.5000000     6  0.2                  26                33
+2 rho_figure     8.7 0.4532007     6  0.2                  28                35
+3    rho_045     8.7 0.4500000     6  0.2                  28                35
+4    rho_030     8.7 0.3000000     6  0.2                  32                40
+5      sd_10    10.0 0.5000000     6  0.2                  34                43
+6    delta_5     8.7 0.5000000     5  0.2                  37                47
+7   loss_030     8.7 0.5000000     6  0.3                  26                38
+  n_recruit_total fixed26_power expected_evaluable_per_arm_33
+1              66     0.8032877                          26.4
+2              70     0.7803403                          26.4
+3              70     0.7788712                          26.4
+4              80     0.7238254                          26.4
+5              86     0.6871610                          26.4
+6              94     0.6497694                          26.4
+7              76     0.8032877                          23.1
+  floor_expected_power_33
+1               0.8032877
+2               0.7803403
+3               0.7788712
+4               0.7238254
+5               0.6871610
+6               0.6497694
+7               0.7512362
+Starting n=33, loss=0.1, B=20000, seed=2026103001
+  loss_probability rejection_rate mc_ci_lower mc_ci_upper
+1              0.1        0.84775   0.8427042   0.8526622
+  conditional_power_mean discrepancy_z nonestimable_simulations
+1              0.8502968     -1.010549                        0
+Starting n=33, loss=0.2, B=20000, seed=2026103002
+  loss_probability rejection_rate mc_ci_lower mc_ci_upper
+1              0.2        0.79895   0.7933383   0.8044469
+  conditional_power_mean discrepancy_z nonestimable_simulations
+1              0.8013463    -0.8514224                        0
+Starting n=33, loss=0.3, B=20000, seed=2026103003
+  loss_probability rejection_rate mc_ci_lower mc_ci_upper
+1              0.3        0.74475   0.7386608   0.7507452
+  conditional_power_mean discrepancy_z nonestimable_simulations
+1               0.740917      1.242373                        0

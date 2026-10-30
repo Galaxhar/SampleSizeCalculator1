@@ -1,4 +1,4 @@
-Inicio UTC: 2026-10-22 06:15:32 UTC
-Fim UTC: 2026-10-22 06:15:34 UTC
-Simulacoes reutilizadas: TRUE
+Inicio UTC: 2026-10-30 22:30:39 UTC
+Fim UTC: 2026-10-30 22:31:15 UTC
+Simulacoes reutilizadas: FALSE
 Calculos e simulacoes realizados exclusivamente em R.

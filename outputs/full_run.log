@@ -1,3 +1,4 @@
+Fontconfig error: No writable cache directories
 Simulacao R: n=24; alternativa; B=20000
 Simulacao R: n=24; nula; B=20000
 Simulacao R: n=25; alternativa; B=20000
@@ -8,22 +9,45 @@ Simulacao R: n=27; alternativa; B=20000
 Simulacao R: n=27; nula; B=20000
 Simulacao R: n=28; alternativa; B=20000
 Simulacao R: n=28; nula; B=20000
-Simulacao R: recrutamento=30; perdas MCAR=0.2; alternativa
-Simulacao R: recrutamento=30; perdas MCAR=0.2; nula
+Simulacao R: recrutamento=33; perdas MCAR=0.2; alternativa
+Simulacao R: recrutamento=33; perdas MCAR=0.2; nula
 null device 
           1 
-                                        test result
-     Variancias publicadas: combinacao igual   PASS
-       Variancias publicadas: ponderacao n-1   PASS
-                       Inflacao por retencao   PASS
- DP residual nao pode ser reduzido novamente   PASS
-             Entrada DP residual equivalente   PASS
-   Sem covariaveis concorda com power.t.test   PASS
-                       Erro tipo I analitico   PASS
-                        Busca inteira minima   PASS
-               Entradas invalidas bloqueadas   PASS
-                 Grade completa 216 cenarios   PASS
-           Poder alvo atingido em toda grade   PASS
-  Retencao esperada suficiente em toda grade   PASS
-      ANCOVA pos equivale a mudanca ajustada   PASS
+                                                    test result
+                 Variancias publicadas: combinacao igual   PASS
+                   Variancias publicadas: ponderacao n-1   PASS
+                                   Inflacao por retencao   PASS
+             DP residual nao pode ser reduzido novamente   PASS
+                         Entrada DP residual equivalente   PASS
+               Sem covariaveis concorda com power.t.test   PASS
+                                   Erro tipo I analitico   PASS
+                                    Busca inteira minima   PASS
+                           Entradas invalidas bloqueadas   PASS
+                             Grade completa 216 cenarios   PASS
+                       Poder alvo atingido em toda grade   PASS
+              Retencao esperada suficiente em toda grade   PASS
+                  ANCOVA pos equivale a mudanca ajustada   PASS
+       omics_CSV_with_all_missing_identification_qvalues passed
+ omics_preserves_participant_n_with_technical_replicates passed
+                     omics_between_group_change_contrast passed
+                                omics_technical_variance passed
+                                   omics_change_variance passed
+                                omics_rejects_missing_id passed
+                    omics_rejects_duplicate_measurements passed
+            omics_rejects_inconsistent_participant_group passed
+                   omics_rejects_unexplained_missingness passed
+         omics_missing_pair_reduces_n_without_imputation passed
+                  omics_rejects_unsupported_batch_design passed
+                      omics_rejects_non_cancelling_batch passed
+                 omics_BH_matches_R_with_declared_family passed
+                      omics_finite_sample_search_minimal passed
+                   omics_retention_uses_ceiling_division passed
+          omics_multiplicity_increases_detectable_effect passed
+                      omics_no_definitive_n_without_data passed
+                  omics_empty_template_plasma_proteomics passed
+         omics_empty_template_rejected_plasma_proteomics passed
+                  omics_empty_template_saliva_proteomics passed
+         omics_empty_template_rejected_saliva_proteomics passed
+                 omics_empty_template_saliva_peptidomics passed
+        omics_empty_template_rejected_saliva_peptidomics passed
 Concluido. Leia report.html ou report.md; tabelas e graficos em outputs/.

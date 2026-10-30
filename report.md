@@ -21,6 +21,13 @@ fornecidos foram o projeto em DOCX, Freire et al. (2007), Clough et al. (2012)
 e o pedido de análise. Não foram fornecidos dados individuais clínicos nem
 abundâncias laboratoriais individuais.
 
+Atualização de 30/10/2026: a meta de **66 participantes, com meta de 33 por
+braço e previsão de 20% de perdas**, foi confirmada. A pesquisa externa e as
+justificativas estão em [fundamentação atualizada](docs/fundamentacao_20261030.md).
+O [projeto Word revisado](docs/projeto_revisado_calculo_randomizacao.docx) incorpora
+o cálculo e o procedimento de randomização em R/Excel. A auditoria dos parágrafos
+Pxxxx abaixo continua se referindo ao documento original, preservado em `references/`.
+
 Os resultados clínicos são **condicionais às premissas de planejamento**.
 Executar corretamente uma fórmula ou reproduzi-la por simulação não demonstra
 que o DP, a correlação ou a diferença-alvo serão observados no ensaio.
@@ -36,7 +43,7 @@ o restante do relatório documenta sua interpretação e as fontes.
 
 ## Resultados executados em R
 
-Execução: R version 4.5.0 (2025-04-11). Premissas centrais provisórias: DP pós 8.7, correlação 0.5, diferença 6.0 eventos/h; alfa bilateral 5%, poder 80%, perdas 20%; 2 covariáveis.
+Execução: R version 4.5.0 (2025-04-11). Premissas centrais de planejamento: DP pós 8.7, correlação 0.5, diferença 6.0 eventos/h; alfa bilateral 5%, poder 80%, perdas 20%; 2 covariáveis.
 
 **Dimensionamento condicional: 26 avaliáveis por grupo; 33 recrutados por grupo (66 no total).** A aproximação normal retorna 24.7534, arredondada para 25 avaliáveis. O cálculo com t e 48 graus de liberdade retorna 26, com poder 80.33% sob balanceamento das covariáveis.
 
@@ -52,11 +59,11 @@ Essas alternativas são auditoria da derivação; selecionar o menor DP apenas p
 
 ### Proposta atual e perdas
 
-Recrutar 30/grupo com retenção esperada de 80% produz 24.0 avaliáveis/grupo em média. Fixando 24 avaliáveis, o poder analítico é 76.97%; com todos os 30 avaliáveis e nenhuma perda, 85.79%.
+Recrutar 33/grupo com retenção esperada de 80% produz 26.4 avaliáveis/grupo em média. Fixando 26 avaliáveis, o poder analítico é 80.33%; com todos os 33 avaliáveis e nenhuma perda, 88.96%.
 
-Na simulação de perdas independentes MCAR, com 30 recrutados/grupo, o poder foi 76.24% (IC95% Monte Carlo 75.65–76.82%). Essa simulação faz análise de casos completos para verificar o método; não implementa a estratégia definitiva de intenção de tratar/imputação.
+Na simulação de perdas independentes MCAR, com 33 recrutados/grupo, o poder foi 80.20% (IC95% Monte Carlo 79.65–80.75%). Essa simulação faz análise de casos completos para verificar o método; não implementa a estratégia definitiva de intenção de tratar/imputação.
 
-Sob retenções binomiais independentes, a probabilidade de ambos os grupos alcançarem pelo menos 26 avaliáveis é 6.51% com 30 recrutados/grupo e 44.31% com 33/grupo. Portanto, dividir pela retenção não garante atingir o alvo. Esses valores não são probabilidades de sucesso do teste.
+Sob retenções binomiais independentes, a probabilidade de ambos os grupos alcançarem pelo menos 26 avaliáveis é 44.31% com 33 recrutados/grupo. Dividir pela retenção não garante atingir o alvo; essa probabilidade não é o poder do teste. A meta de 33/grupo também não garante equilíbrio exato ao encerrar blocos estratificados incompletos.
 
 ### Sensibilidade
 
@@ -143,7 +150,7 @@ Não foram introduzidas interações, idade ou IMC no modelo primário.
 Se a codificação final de sexo exigir mais de uma coluna, é necessário
 atualizar o número de parâmetros e o dimensionamento.
 
-### Divergências que exigem harmonização documental
+### Auditoria das divergências do documento original
 
 O objetivo e P0167 descrevem diferença entre grupos na mudança do IAH;
 P0080 e P0172 especificam IAH pós-intervenção ajustado pelo basal. Adotou-se
@@ -156,8 +163,9 @@ O cálculo descrito em P0080 menciona somente ajuste pelo IAH basal, enquanto
 P0172 inclui sexo. Este projeto inclui o custo em graus de liberdade de ambas
 as covariáveis, mas não presume benefício prognóstico adicional do sexo.
 
-A proposta de 25 avaliáveis por grupo, 20% de perdas e 30 recrutados por grupo
-em P0080 é aritmeticamente inconsistente. Para compensar perda de 20% dos
+A proposta original de 25 avaliáveis por grupo, 20% de perdas e 30 recrutados por grupo
+em P0080 era aritmeticamente inconsistente. O Word revisado usa 26 avaliáveis e
+meta de 33 recrutados por braço. Para compensar perda de 20% dos
 recrutados, a operação correta é divisão por 0,80 e arredondamento para cima:
 $\lceil25/0{,}80\rceil=32$. Trinta recrutados correspondem a 24 avaliáveis
 **esperados** por grupo. A recomendação finita deve usar o número de
@@ -227,18 +235,28 @@ o valor menor não foi selecionado para reduzir o recrutamento.
 Freire não fornece, nos resumos numéricos, correlação basal–pós, covariância
 ou DP da mudança suficientes para reconstruir a correlação. Médias e DPs
 marginais não identificam $\rho$. A Figura 3, p.48, mostra trajetórias,
-mas não uma tabela de pares exatos; não foi realizada digitização.
+mas não uma tabela de pares exatos. Na revisão suplementar, a extração dos
+segmentos vetoriais permitiu uma reconstrução exploratória (r dentro dos braços
+acupuntura e sham combinado ≈0,453), com divergências em relação aos DPs tabulados.
 Os testes descritos na p.46 são Wilcoxon pareado e Kruskal–Wallis, e seus
 p-valores não foram convertidos em uma correlação de Pearson. Portanto,
 $\rho=0{,}5$ permanece **hipótese de planejamento**, não estimativa publicada.
+A busca externa encontrou apoio indireto em Puhan et al. (2006): r combinado
+dentro dos braços ≈0,559, derivado dos DPs basal, final e da mudança em 25
+participantes. O estudo avaliou outro tratamento e seguimento de quatro meses;
+não confirma a correlação para eletroacupuntura em quatro semanas. A derivação
+e seus limites constam da [fundamentação atualizada](docs/fundamentacao_20261030.md).
 
 A diferença-alvo de 6 eventos/h foi especificada no projeto, mas os materiais
 fornecidos não estabelecem sua derivação nem a validam como diferença mínima
 clinicamente importante. A tabela de Freire implica diferença pós não ajustada
 de −14,5 eventos/h e diferença entre mudanças não ajustadas de −12,8 eventos/h.
 Essas são descrições do piloto, não estimativas da ANCOVA do novo ensaio nem
-validação do alvo 6. Sua relevância e plausibilidade são **decisões científicas
-pendentes** da revisão clínica/estatística.
+validação do alvo 6. Esse valor foi mantido como **estimativa clínica prévia**.
+Wang et al. (2020) encontrou diferença média de −6,18 eventos/h, mas com
+evidência baixa e I²=94%; Silva et al. (2020) não encontrou diferença entre
+acupuntura e sham em hipertensos com AOS leve/moderada. Essas fontes contextualizam
+a escolha e sua incerteza; não validam 6 como diferença mínima clinicamente importante.
 
 Alfa bilateral de 5%, poder de 80% e perdas de 20% são escolhas de planejamento
 do protocolo. O poder é a probabilidade de rejeitar a hipótese nula no
@@ -349,8 +367,8 @@ de resultados mostra a probabilidade de ambos alcançarem o alvo sob essa
 hipótese simplificadora. Uma meta de garantia de retenção exigiria escolher
 explicitamente a probabilidade desejada e possivelmente recrutar mais.
 
-Para 30 recrutados por grupo, são apresentados separadamente o poder com
-30 avaliáveis sem perdas, a aproximação com 24 avaliáveis fixos sob retenção
+Para a meta de 33 recrutados por grupo, são apresentados separadamente o poder com
+33 avaliáveis sem perdas, a aproximação com 26 avaliáveis fixos sob retenção
 esperada de 80%, e a simulação com números aleatórios de casos completos.
 Essas quantidades respondem a perguntas diferentes.
 
@@ -528,9 +546,9 @@ As decisões prioritárias para o consultor são:
 2. Rever a plausibilidade de DP 8,7 e correlação 0,5; considerar dados piloto,
    estimativas externas adequadas ou atualização amostral cega previamente
    planejada, se cientificamente apropriada.
-3. Escolher o recrutamento considerando a fronteira de poder, a incerteza
-   de retenção, a viabilidade e a eventual margem adicional; documentar
-   o nível de garantia desejado em vez de confundi-lo com retenção média.
+3. Acompanhar a retenção sob a meta escolhida de 66 participantes, com a
+   incerteza explicitada; documentar eventuais revisões prévias do protocolo
+   sem confundir retenção média com garantia de atingir o alvo por braço.
 4. Harmonizar a redação mudança/ANCOVA, confirmar codificação de sexo e
    manter a gravidade representada como previsto; verificar adequação
    linear, homocedasticidade, assimetria e efeito piso do IAH.
@@ -559,8 +577,10 @@ sendo parte da revisão científica.
   with complex designs. *BMC Bioinformatics*. 2012;13(Suppl 16):S6.
   DOI: [10.1186/1471-2105-13-S16-S6](https://doi.org/10.1186/1471-2105-13-S16-S6).
 
-Os demais trabalhos citados na bibliografia do projeto não foram fornecidos
-integralmente e não são usados aqui como se seus resultados tivessem sido
-auditados. A derivação do cálculo t está explicitada acima e implementada
+As referências externas adicionais consultadas em 30/10/2026, seus PMIDs,
+trechos/tabelas usados e limites de acesso estão documentados em
+[fundamentação atualizada](docs/fundamentacao_20261030.md).
+Os demais trabalhos da bibliografia original não foram auditados integralmente.
+A derivação do cálculo t está explicitada acima e implementada
 com as funções `qt()` e `pt()` de `stats`, sem atribuí-la aos artigos de
 Freire ou Clough.

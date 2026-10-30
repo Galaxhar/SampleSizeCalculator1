@@ -1,0 +1,252 @@
+[
+  {
+    "pmid": "17023212",
+    "pmcid": null,
+    "doi": "10.1016/j.sleep.2006.04.009",
+    "title": "Treatment of moderate obstructive sleep apnea syndrome with acupuncture: a randomised, placebo-controlled pilot trial.",
+    "authorString": "Freire AO, Sugai GC, Chrispin FS, Togeiro SM, Yamamura Y, Mello LE, Tufik S.",
+    "journalInfo": {
+      "issue": "1",
+      "volume": "8",
+      "journalIssueId": 1372420,
+      "dateOfPublication": "2007 Jan",
+      "monthOfPublication": 1,
+      "yearOfPublication": 2007,
+      "journal": {
+        "medlineAbbreviation": "Sleep Med",
+        "title": "Sleep medicine",
+        "essn": "1878-5506",
+        "issn": "1389-9457",
+        "nlmid": "100898759",
+        "isoabbreviation": "Sleep Med"
+      },
+      "printPublicationDate": "2007-01-01"
+    },
+    "pageInfo": "43-50",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/17023212/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "16377643",
+    "pmcid": "PMC1360393",
+    "doi": "10.1136/bmj.38705.470590.55",
+    "title": "Didgeridoo playing as alternative treatment for obstructive sleep apnoea syndrome: randomised controlled trial.",
+    "authorString": "Puhan MA, Suarez A, Lo Cascio C, Zahn A, Heitz M, Braendli O.",
+    "journalInfo": {
+      "issue": "7536",
+      "volume": "332",
+      "journalIssueId": 1295074,
+      "dateOfPublication": "2006 Feb",
+      "monthOfPublication": 2,
+      "yearOfPublication": 2006,
+      "journal": {
+        "medlineAbbreviation": "BMJ",
+        "title": "BMJ (Clinical research ed.)",
+        "essn": "1756-1833",
+        "issn": "0959-8138",
+        "isoabbreviation": "BMJ",
+        "nlmid": "8900488"
+      },
+      "printPublicationDate": "2006-02-01"
+    },
+    "pageInfo": "266-270",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/16377643/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "32258139",
+    "pmcid": "PMC7079261",
+    "doi": "10.1155/2020/6972327",
+    "title": "Acupuncture for Obstructive Sleep Apnea (OSA) in Adults: A Systematic Review and Meta-Analysis.",
+    "authorString": "Wang L, Xu J, Zhan Y, Pei J.",
+    "journalInfo": {
+      "volume": "2020",
+      "journalIssueId": 2925583,
+      "dateOfPublication": "2020",
+      "monthOfPublication": 0,
+      "yearOfPublication": 2020,
+      "journal": {
+        "medlineAbbreviation": "Biomed Res Int",
+        "title": "BioMed research international",
+        "essn": "2314-6141",
+        "issn": "2314-6133",
+        "nlmid": "101600173",
+        "isoabbreviation": "Biomed Res Int"
+      },
+      "printPublicationDate": "2020-01-01"
+    },
+    "pageInfo": "6972327",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32258139/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "31868987",
+    "pmcid": null,
+    "doi": "10.1111/jsr.12954",
+    "title": "Effects of acupuncture on obstructive sleep apnea severity, blood pressure control and quality of life in patients with hypertension: A randomized controlled trial.",
+    "authorString": "Silva MVFP, Lustosa TC, Arai VJ, Couto Patriota TLG, Lira MPF, Lins-Filho OL, Chalegre ST, B B A S K, Secundo IV, Pedrosa RP.",
+    "journalInfo": {
+      "issue": "2",
+      "volume": "29",
+      "journalIssueId": 2923692,
+      "dateOfPublication": "2020 Apr",
+      "monthOfPublication": 4,
+      "yearOfPublication": 2020,
+      "journal": {
+        "medlineAbbreviation": "J Sleep Res",
+        "title": "Journal of sleep research",
+        "essn": "1365-2869",
+        "issn": "0962-1105",
+        "nlmid": "9214441",
+        "isoabbreviation": "J Sleep Res"
+      },
+      "printPublicationDate": "2020-04-01"
+    },
+    "pageInfo": "e12954",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31868987/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "17998077",
+    "pmcid": null,
+    "doi": "10.1016/j.jclinepi.2007.02.006",
+    "title": "A simple sample size formula for analysis of covariance in randomized clinical trials.",
+    "authorString": "Borm GF, Fransen J, Lemmens WA.",
+    "journalInfo": {
+      "issue": "12",
+      "volume": "60",
+      "journalIssueId": 1480347,
+      "dateOfPublication": "2007 Dec",
+      "monthOfPublication": 12,
+      "yearOfPublication": 2007,
+      "journal": {
+        "medlineAbbreviation": "J Clin Epidemiol",
+        "title": "Journal of clinical epidemiology",
+        "essn": "1878-5921",
+        "issn": "0895-4356",
+        "isoabbreviation": "J Clin Epidemiol",
+        "nlmid": "8801383"
+      },
+      "printPublicationDate": "2007-12-01"
+    },
+    "pageInfo": "1234-1238",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/17998077/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "11701584",
+    "pmcid": "PMC1121605",
+    "doi": "10.1136/bmj.323.7321.1123",
+    "title": "Statistics notes: Analysing controlled trials with baseline and follow up measurements.",
+    "authorString": "Vickers AJ, Altman DG.",
+    "journalInfo": {
+      "issue": "7321",
+      "volume": "323",
+      "journalIssueId": 1027661,
+      "dateOfPublication": "2001 Nov",
+      "monthOfPublication": 11,
+      "yearOfPublication": 2001,
+      "journal": {
+        "medlineAbbreviation": "BMJ",
+        "title": "BMJ (Clinical research ed.)",
+        "essn": "1756-1833",
+        "issn": "0959-8138",
+        "nlmid": "8900488",
+        "isoabbreviation": "BMJ"
+      },
+      "printPublicationDate": "2001-11-01"
+    },
+    "pageInfo": "1123-1124",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11701584/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "11867132",
+    "pmcid": null,
+    "doi": "10.1016/s0140-6736(02)07750-4",
+    "title": "Allocation concealment in randomised trials: defending against deciphering.",
+    "authorString": "Schulz KF, Grimes DA.",
+    "journalInfo": {
+      "issue": "9306",
+      "volume": "359",
+      "journalIssueId": 1056524,
+      "dateOfPublication": "2002 Feb",
+      "monthOfPublication": 2,
+      "yearOfPublication": 2002,
+      "journal": {
+        "medlineAbbreviation": "Lancet",
+        "title": "Lancet (London, England)",
+        "essn": "1474-547X",
+        "issn": "0140-6736",
+        "nlmid": "2985213R",
+        "isoabbreviation": "Lancet"
+      },
+      "printPublicationDate": "2002-02-01"
+    },
+    "pageInfo": "614-618",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11867132/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "11853818",
+    "pmcid": null,
+    "doi": "10.1016/s0140-6736(02)07683-3",
+    "title": "Generation of allocation sequences in randomised trials: chance, not choice.",
+    "authorString": "Schulz KF, Grimes DA.",
+    "journalInfo": {
+      "issue": "9305",
+      "volume": "359",
+      "journalIssueId": 1054332,
+      "dateOfPublication": "2002 Feb",
+      "monthOfPublication": 2,
+      "yearOfPublication": 2002,
+      "journal": {
+        "medlineAbbreviation": "Lancet",
+        "title": "Lancet (London, England)",
+        "essn": "1474-547X",
+        "issn": "0140-6736",
+        "isoabbreviation": "Lancet",
+        "nlmid": "2985213R"
+      },
+      "printPublicationDate": "2002-02-01"
+    },
+    "pageInfo": "515-519",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11853818/",
+    "retrieval_date": "2026-10-30"
+  },
+  {
+    "pmid": "40228832",
+    "pmcid": "PMC11995452",
+    "doi": "10.1136/bmj-2024-081124",
+    "title": "CONSORT 2025 explanation and elaboration: updated guideline for reporting randomised trials.",
+    "authorString": "Hopewell S, Chan AW, Collins GS, Hróbjartsson A, Moher D, Schulz KF, Tunn R, Aggarwal R, Berkwits M, Berlin JA, Bhandari N, Butcher NJ, Campbell MK, Chidebe RCW, Elbourne D, Farmer A, Fergusson DA, Golub RM, Goodman SN, Hoffmann TC, Ioannidis JPA, Kahan BC, Knowles RL, Lamb SE, Lewis S, Loder E, Offringa M, Ravaud P, Richards DP, Rockhold FW, Schriger DL, Siegfried NL, Staniszewska S, Taylor RS, Thabane L, Torgerson D, Vohra S, White IR, Boutron I.",
+    "journalInfo": {
+      "volume": "389",
+      "journalIssueId": 3922024,
+      "dateOfPublication": "2025 Apr",
+      "monthOfPublication": 4,
+      "yearOfPublication": 2025,
+      "journal": {
+        "medlineAbbreviation": "BMJ",
+        "title": "BMJ (Clinical research ed.)",
+        "essn": "1756-1833",
+        "issn": "0959-8138",
+        "nlmid": "8900488",
+        "isoabbreviation": "BMJ"
+      },
+      "printPublicationDate": "2025-04-01"
+    },
+    "pageInfo": "e081124",
+    "source": "MED",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40228832/",
+    "retrieval_date": "2026-10-30"
+  }
+]

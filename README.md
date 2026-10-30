@@ -1,13 +1,15 @@
 # Cálculo amostral — eletroacupuntura e apneia obstrutiva do sono
 
 Projeto reproduzível em **R**, preparado para consultoria estatística. Os parâmetros
-clínicos são provisórios. Leia [o relatório](report.html), sua [fonte Quarto](report.qmd)
+clínicos são hipóteses de planejamento. Leia [o relatório](report.html), sua [fonte Quarto](report.qmd)
 ou a [versão Markdown](report.md) e a [auditoria das fontes](docs/source_audit.md).
 
-Revisão de 28/10/2026: [projeto Word com a seção de randomização em amarelo](docs/projeto_randomizacao_revisao_parcial.docx)
-e [nota sobre a correlação e as pendências](docs/revisao_metodologica_pendente.md).
-**O Word é uma revisão parcial:** o cálculo amostral original ainda aguarda
-substituição após resolver a fundamentação da correlação. Não é a versão final para o CEP.
+Revisão de 30/10/2026: [projeto Word com cálculo amostral e randomização em amarelo](docs/projeto_revisado_calculo_randomizacao.docx),
+[texto breve de riscos para a cliente](docs/texto_cliente_riscos.docx) e
+[fundamentação e referências externas verificadas](docs/fundamentacao_20261030.md).
+A meta confirmada é **66 participantes, meta de 33 por braço**, com previsão de
+20% de perdas. A randomização usa R e guarda/liberação independente em Excel.
+A revisão parcial de 28/10 foi mantida apenas como histórico.
 
 ## Executar no RStudio
 
@@ -28,7 +30,7 @@ Rscript --vanilla tests/run_tests.R
 ```
 
 O fluxo executa 20.000 réplicas por cenário: poder e erro tipo I em 24 a 28
-avaliáveis/grupo, além de perdas MCAR com 30 recrutados/grupo. As simulações podem
+avaliáveis/grupo, além de perdas MCAR com 33 recrutados/grupo. As simulações podem
 levar alguns minutos. Não reduza esse número para usar os resultados na consultoria.
 O CSV registra sementes, contagens efetivas, intervalos Monte Carlo e diagnósticos.
 

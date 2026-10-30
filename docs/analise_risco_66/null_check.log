@@ -1,0 +1,4 @@
+  simulations rejection_rate mc_ci_lower mc_ci_upper discrepancy_z
+1      100000        0.05001  0.04867626  0.05137831    0.01450953
+      simulations rejections       rate     lower      upper
+lower      120000       6107 0.05089167 0.0496625 0.05214959
